@@ -7,11 +7,18 @@
 clip(obj, file = "output.txt")
 }
 \arguments{
-\item{file}{}
+\item{obj}{the object for save}
+
+\item{file}{the file name}
 }
 \value{
 
 }
 \description{
 Save string output to output.txt and save in clipboard
+}
+\examples{
+library(tidyverse,quietly = TRUE,warn.conflicts = FALSE,verbose = FALSE)
+summary(glm(case ~ spontaneous+induced,data = infert,family = binomial()))\%>\%clip()
+
 }

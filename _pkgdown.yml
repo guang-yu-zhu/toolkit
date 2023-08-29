@@ -11,10 +11,10 @@ navbar:
   structure:
     left:
     - home
-    - intro
-    - guide
+    #- intro
+    #- guide
     - reference
-    - articles
+    #- articles
     - news
     right: github
 
@@ -22,20 +22,20 @@ navbar:
     home:
       icon: fas fa-home fa-lg
       href: index.html
-    guide:
-      text: Analyst Guide
-      menu:
-      - text: Introduction
+    # guide:
+    #   text: Analyst Guide
+    #   menu:
+    #   - text: Introduction
     reference:
       text: Functions
       href: reference/index.html
     github:
       icon: fab fa-github fa-lg
       href: https://github.com/guang-yu-zhu/YKnock
-    articles:
-      text: Articles
-      menu:
-      - text: Introduction to {tooljit}
+    # articles:
+    #   text: Articles
+    #   menu:
+    #   - text: Introduction to {toolkit}
     news:
       text: Changelog
       href: news/index.html

@@ -1,0 +1,14 @@
+.Rproj.user
+.Rhistory
+_data/
+_development/
+.RData
+Meta
+.RDataTmp
+0create.R
+sourceDir.R
+try.R
+
+.Rdata
+.httr-oauth
+.DS_Store

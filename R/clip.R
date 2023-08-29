@@ -1,21 +1,17 @@
+library(tidyverse)
+library(readr)
+library(clipr)
+
+#' Save output to clipboard
+#'
 #' Save string output to output.txt and save in clipboard
 #'
+#' @param obj
+#' @param file
 #'
-#' @param obj NA
-#' @param file the file name for saving the output
+#' @return
+#' @export
 #'
-#' @return NA
-#'
-#' @family
-#'
-#' @details
-
-#' @references
-#' @keywords internal
-
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse,kableExtra,readr,clipr)
-
 clip<-function(obj,file = "output.txt"){
   obj%>%
     capture.output(file = "output.txt")

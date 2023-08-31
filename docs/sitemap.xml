@@ -19,6 +19,9 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
+    <loc>/reference/cleanFolder.html</loc>
+  </url>
+  <url>
     <loc>/reference/clip.html</loc>
   </url>
   <url>
@@ -31,6 +34,18 @@
     <loc>/reference/knockoff.threshold.html</loc>
   </url>
   <url>
+    <loc>/reference/meanSD.html</loc>
+  </url>
+  <url>
+    <loc>/reference/range.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sourceDir.html</loc>
+  </url>
+  <url>
     <loc>/reference/toolkit-package.html</loc>
+  </url>
+  <url>
+    <loc>/reference/zround.html</loc>
   </url>
 </urlset>

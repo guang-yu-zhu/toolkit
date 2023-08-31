@@ -6,6 +6,7 @@ file.edit('DESCRIPTION')
 file.edit('README.md')
 #-----
 library(pkgdown)
+library(roxygen2)
 #usethis::use_github_action("pkgdown")
 #usethis::use_pkgdown()
 roxygenise(clean = TRUE)

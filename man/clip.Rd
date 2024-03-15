@@ -11,6 +11,9 @@ clip(obj, file = "output.txt")
 
 \item{file}{the file name}
 }
+\value{
+
+}
 \description{
 Save string output to output.txt and save in clipboard
 }

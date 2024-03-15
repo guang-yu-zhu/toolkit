@@ -2,18 +2,27 @@
 % Please edit documentation in R/helpFun.R
 \name{zround}
 \alias{zround}
-\title{Rounding of Numbers to a string}
+\title{Round and Format Numbers to Specific Decimal Places}
 \usage{
 zround(x, digits = 2)
 }
 \arguments{
-\item{x}{a numeric vector}
+\item{x}{A numeric vector or a single numeric value.}
 
-\item{digits}{number of digits after the decimal point. Default is 2.}
+\item{digits}{An integer indicating the number of decimal places
+to format the numbers. Defaults to 2.}
+}
+\value{
+A character vector with each number in \code{x} formatted to
+\code{digits} decimal places.
 }
 \description{
-Takes a single numeric argument x and returns a character vector containing strings rounded to specified number of digits after the decimal point (default 2
+This function takes a numeric vector or a single numeric value and
+formats it to a specified number of decimal places. The function
+returns a character vector with the numbers formatted as strings.
 }
 \examples{
-zround(c(pi,pi*10^5),3)
+zround(3.14159)
+zround(c(1.234, 5.6789), digits = 1)
+
 }

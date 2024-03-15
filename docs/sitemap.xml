@@ -25,6 +25,12 @@
     <loc>/reference/clip.html</loc>
   </url>
   <url>
+    <loc>/reference/count_percent.html</loc>
+  </url>
+  <url>
+    <loc>/reference/draw_normal.html</loc>
+  </url>
+  <url>
     <loc>/reference/hello.html</loc>
   </url>
   <url>
@@ -37,13 +43,31 @@
     <loc>/reference/meanSD.html</loc>
   </url>
   <url>
+    <loc>/reference/print_table.html</loc>
+  </url>
+  <url>
+    <loc>/reference/print_table_stripe.html</loc>
+  </url>
+  <url>
     <loc>/reference/range.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rmd_knit_hook_set.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rmd_opts_chunk_set.html</loc>
+  </url>
+  <url>
+    <loc>/reference/set_ggplot_theme.html</loc>
   </url>
   <url>
     <loc>/reference/sourceDir.html</loc>
   </url>
   <url>
     <loc>/reference/toolkit-package.html</loc>
+  </url>
+  <url>
+    <loc>/reference/zkbl.html</loc>
   </url>
   <url>
     <loc>/reference/zround.html</loc>

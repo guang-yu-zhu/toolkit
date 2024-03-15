@@ -2,16 +2,27 @@
 % Please edit documentation in R/helpFun.R
 \name{range}
 \alias{range}
-\title{Get range of a vector}
+\title{Calculate and Format Range of a Numeric Vector}
 \usage{
 range(x, digits = 2)
 }
 \arguments{
-\item{digits}{number of digits after the decimal point. Default is 2.}
+\item{x}{A numeric vector for which the range (min and max) is to be calculated.}
+
+\item{digits}{An integer indicating the number of decimal places to which the
+results will be rounded. Defaults to 2.}
+}
+\value{
+A character string representing the range of \code{x}, formatted as
+'(min, max)', where 'min' and 'max' are the minimum and maximum values of \code{x}
+rounded to \code{digits} decimal places.
 }
 \description{
-Get range of a vector
+This function calculates the range (minimum and maximum values) of a given numeric vector.
+It then formats and rounds these values to a specified number of decimal places, returning them as a string.
 }
 \examples{
-range(rnorm(100),3)
+range(c(1.234, 5.678, 9.012))
+range(c(10, 20, 30, 40, 50), digits = 1)
+
 }

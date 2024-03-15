@@ -1,0 +1,25 @@
+#' Print a styled LaTeX table with alternating row colors
+#'
+#' This function prints a LaTeX table using the kableExtra package with alternating row colors.
+#'
+#' @param df The data frame to be formatted as a table.
+#' @param fontsize Font size for the table (default: 7).
+#' @param stripe_color Color for the alternating row stripes (default: "cyan!15").
+#' @param ... Additional arguments to be passed to the kbl function.
+#'
+#' @return A LaTeX table with alternating row colors.
+#'
+#' @examples
+#' library(kableExtra)
+#' df <- data.frame(x = 1:5, y = letters[1:5])
+#' print_table_stripe(df)
+#'
+#' @import kableExtra
+#' @import magrittr
+#' @export
+print_table_stripe<-function(df,fontsize=7,stripe_color ="cyan!15",...){
+  kbl(df,booktabs = TRUE, linesep = "", ...)%>%
+    kable_styling(latex_options = c("striped","HOLD_position"),position = 'center',table.envir='table',
+                  font_size=fontsize,stripe_color=stripe_color,full_width = FALSE)%>%
+    row_spec(0, font_size=fontsize)
+}

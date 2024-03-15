@@ -1,53 +1,102 @@
-#' Rounding of Numbers to a string
+#' Round and Format Numbers to Specific Decimal Places
 #'
-#' Takes a single numeric argument x and returns a character vector containing strings rounded to specified number of digits after the decimal point (default 2
-#' @param x a numeric vector
-#' @param digits number of digits after the decimal point. Default is 2.
+#' This function takes a numeric vector or a single numeric value and 
+#' formats it to a specified number of decimal places. The function 
+#' returns a character vector with the numbers formatted as strings.
 #'
-#' @return
-#' @export
+#' @param x A numeric vector or a single numeric value.
+#' @param digits An integer indicating the number of decimal places 
+#'   to format the numbers. Defaults to 2.
+#'
+#' @return A character vector with each number in `x` formatted to 
+#'   `digits` decimal places.
 #'
 #' @examples
-#' zround(c(pi,pi*10^5),3)
-zround<-function(x,digits=2){
-  x=sprintf(paste0("%.",digits,"f"),x)
+#' zround(3.14159)
+#' zround(c(1.234, 5.6789), digits = 1)
+#'
+#' @export
+zround <- function(x, digits = 2) {
+  x = sprintf(paste0("%.", digits, "f"), x)
   x
 }
 
 
-
-#' Calculate mean and SD of a vector
+#' Calculate Mean and Standard Deviation, and Format the Output
 #'
-#' @param x
-#' @param digits number of digits after the decimal point. Default is 2.
+#' This function computes the mean and standard deviation of a numeric vector 
+#' and returns a formatted string with the mean and standard deviation, rounded to 
+#' a specified number of decimal places.
 #'
-#' @return
-#' @export
+#' @param x A numeric vector for which the mean and standard deviation are to be computed.
+#' @param digits An integer indicating the number of decimal places to which the 
+#'   results will be rounded. Defaults to 2.
+#'
+#' @return A character string containing the mean and standard deviation of `x`,
+#'   formatted as 'mean (standard deviation)', each rounded to `digits` decimal places.
 #'
 #' @examples
-#' meanSD(rnorm(100))
-meanSD<-function(x,digits=2){
-  res1<-c(mean(x),sd(x))
-  res2<-sapply(res1,zround,digits=digits)
-  res = paste0(res2[1],' (',res2[2],')')
+#' meanSD(c(10.5, 5.3, 7.8), digits = 3)
+#'
+#' @export
+meanSD <- function(x, digits = 2) {
+  res1 <- c(mean(x), sd(x))
+  #res2 <- sapply(res1, zround, digits = digits)
+  res2 <- zround(res1, digits = digits)
+  res = paste0(res2[1], ' (', res2[2], ')')
+  res
+}
+
+#' Calculate and Format Range of a Numeric Vector
+#'
+#' This function calculates the range (minimum and maximum values) of a given numeric vector. 
+#' It then formats and rounds these values to a specified number of decimal places, returning them as a string.
+#'
+#' @param x A numeric vector for which the range (min and max) is to be calculated.
+#' @param digits An integer indicating the number of decimal places to which the 
+#'   results will be rounded. Defaults to 2.
+#'
+#' @return A character string representing the range of `x`, formatted as 
+#'   '(min, max)', where 'min' and 'max' are the minimum and maximum values of `x` 
+#'   rounded to `digits` decimal places.
+#'
+#' @examples
+#' range(c(1.234, 5.678, 9.012))
+#' range(c(10, 20, 30, 40, 50), digits = 1)
+#'
+#' @export
+range <- function(x, digits = 2) {
+  res1 <- c(min(x), max(x))
+  #res2 <- sapply(res1, zround, digits = digits)
+  res2 <- zround(res1, digits = digits)
+  res = paste0('(', res2[1], ', ', res2[2], ')')
   res
 }
 
 
-
-#' Get range of a vector
+#' Calculate Counts and Percentages of Factor Levels
 #'
-#' @param x
-#' @param digits number of digits after the decimal point. Default is 2.
+#' This function computes the counts and percentages for each level of a factor or categorical variable.
+#' It returns a character vector with each level's count and its percentage of the total, formatted to a specified number of decimal places.
 #'
-#' @export
+#' @param x A factor or a categorical variable.
+#' @param digits An integer indicating the number of decimal places to which the 
+#'   percentages will be rounded. Defaults to 2.
+#'
+#' @return A character vector where each element corresponds to a level of `x`.
+#'   Each element is formatted as 'count (percentage%)', where 'count' is the number of occurrences of the level
+#'   and 'percentage' is the percentage of the total, rounded to `digits` decimal places.
 #'
 #' @examples
-#' range(rnorm(100),3)
-range<-function(x,digits=2){
-  res1<-c(min(x),max(x))
-  res2<-sapply(res1,zround,digits=digits)
-  res = paste0('(',res2[1],', ',res2[2],')')
-  res
+#' levels= LETTERS[1:3]
+#' factor1 <- levels%>%sample(size = 10, replace = TRUE)%>%factor()
+#' count_percent(factor1,1)
+#' 
+#' @export
+count_percent <- function(x,digits=2) {
+  counts <- table(x)
+  percent <- 100 * counts / sum(counts)
+  result <- paste(counts, " (", zround(percent, digits), "%)", sep="")
+  return(result)
 }
 

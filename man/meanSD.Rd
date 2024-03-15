@@ -2,16 +2,26 @@
 % Please edit documentation in R/helpFun.R
 \name{meanSD}
 \alias{meanSD}
-\title{Calculate mean and SD of a vector}
+\title{Calculate Mean and Standard Deviation, and Format the Output}
 \usage{
 meanSD(x, digits = 2)
 }
 \arguments{
-\item{digits}{number of digits after the decimal point. Default is 2.}
+\item{x}{A numeric vector for which the mean and standard deviation are to be computed.}
+
+\item{digits}{An integer indicating the number of decimal places to which the
+results will be rounded. Defaults to 2.}
+}
+\value{
+A character string containing the mean and standard deviation of \code{x},
+formatted as 'mean (standard deviation)', each rounded to \code{digits} decimal places.
 }
 \description{
-Calculate mean and SD of a vector
+This function computes the mean and standard deviation of a numeric vector
+and returns a formatted string with the mean and standard deviation, rounded to
+a specified number of decimal places.
 }
 \examples{
-meanSD(rnorm(100))
+meanSD(c(10.5, 5.3, 7.8), digits = 3)
+
 }

@@ -10,16 +10,17 @@
 #' @return A LaTeX table with alternating row colors.
 #'
 #' @examples
-#' library(kableExtra)
 #' df <- data.frame(x = 1:5, y = letters[1:5])
 #' print_table_stripe(df)
 #'
-#' @import kableExtra
-#' @import magrittr
+#' @importFrom kableExtra kbl kable_styling row_spec
 #' @export
-print_table_stripe<-function(df,fontsize=7,stripe_color ="cyan!15",...){
-  kbl(df,booktabs = TRUE, linesep = "", ...)%>%
-    kable_styling(latex_options = c("striped","HOLD_position"),position = 'center',table.envir='table',
-                  font_size=fontsize,stripe_color=stripe_color,full_width = FALSE)%>%
-    row_spec(0, font_size=fontsize)
+print_table_stripe <- function(df, fontsize = 7, stripe_color = "cyan!15", ...) {
+  kableExtra::kbl(df, booktabs = TRUE, linesep = "", ...) %>%
+    kableExtra::kable_styling(
+      latex_options = c("striped", "HOLD_position"),
+      position = 'center', table.envir = 'table',
+      font_size = fontsize, stripe_color = stripe_color, full_width = FALSE
+    ) %>%
+    kableExtra::row_spec(0, font_size = fontsize)
 }

@@ -15,13 +15,14 @@
 #' df <- data.frame(x = 1:5, y = letters[1:5])
 #' print_table(df)
 #'
-#' @import magrittr
-#' @import flextable
-#' @import knitr
-#' @import kableExtra
+#' @importFrom magrittr %>%
+#' @importFrom kableExtra kbl kable_styling row_spec
+#' @importFrom flextable set_flextable_defaults flextable fontsize set_caption colformat_double autofit
+#' @importFrom knitr opts_knit
+#' @importFrom tibble rownames_to_column
 #' @export
 print_table<-function(df,caption = '',digits=2,print_rownames=FALSE,fontsize=9,...){
-  set_flextable_defaults(
+  flextable::set_flextable_defaults(
     digits = 4,
     decimal.mark = ".",
     big.mark=",",
@@ -34,21 +35,21 @@ print_table<-function(df,caption = '',digits=2,print_rownames=FALSE,fontsize=9,.
   df=df%>%as.data.frame()
   if(is.null(doc.type)) doc.type<-'html'
   if (doc.type == "docx"){
-    if(print_rownames) df <- df %>% rownames_to_column(var='rowname')
-    flextable(df)%>%
-      fontsize(size=fontsize)%>%
-      set_caption(caption=caption)%>%
-      colformat_double(digits = digits)%>%
-      autofit()
+    if(print_rownames) df <- df %>% tibble::rownames_to_column(var='rowname')
+    flextable::flextable(df)%>%
+      flextable::fontsize(size=fontsize)%>%
+      flextable::set_caption(caption=caption)%>%
+      flextable::colformat_double(digits = digits)%>%
+      flextable::autofit()
   }
   else{
-    kbl(df,caption=caption,digits=digits, booktabs = TRUE, linesep = "", ...)%>%
-      kable_styling(latex_options = c("HOLD_position"),
+    kableExtra::kbl(df,caption=caption,digits=digits, booktabs = TRUE, linesep = "", ...)%>%
+      kableExtra::kable_styling(latex_options = c("HOLD_position"),
                     position = 'center',
                     table.envir='table',
                     font_size=fontsize,
                     full_width = FALSE)%>%
-      row_spec(0, font_size=fontsize)
+      kableExtra::row_spec(0, font_size=fontsize)
   }
 }
 

@@ -1,75 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/cleanFolder.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/cleanFolder.html</loc>
   </url>
   <url>
-    <loc>/reference/clip.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/clip.html</loc>
   </url>
   <url>
-    <loc>/reference/count_percent.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/count_percent.html</loc>
   </url>
   <url>
-    <loc>/reference/draw_normal.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/draw_normal.html</loc>
   </url>
   <url>
-    <loc>/reference/hello.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/meanSD.html</loc>
   </url>
   <url>
-    <loc>/reference/knockoff.threshold.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/pipe.html</loc>
   </url>
   <url>
-    <loc>/reference/meanSD.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/print_table.html</loc>
   </url>
   <url>
-    <loc>/reference/print_table.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/print_table_stripe.html</loc>
   </url>
   <url>
-    <loc>/reference/print_table_stripe.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/range.html</loc>
   </url>
   <url>
-    <loc>/reference/range.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/rmd_knit_hook_set.html</loc>
   </url>
   <url>
-    <loc>/reference/rmd_knit_hook_set.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/rmd_opts_chunk_set.html</loc>
   </url>
   <url>
-    <loc>/reference/rmd_opts_chunk_set.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/set_ggplot_theme.html</loc>
   </url>
   <url>
-    <loc>/reference/set_ggplot_theme.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/sourceDir.html</loc>
   </url>
   <url>
-    <loc>/reference/sourceDir.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/toolkit-package.html</loc>
   </url>
   <url>
-    <loc>/reference/toolkit-package.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/zkbl.html</loc>
   </url>
   <url>
-    <loc>/reference/zkbl.html</loc>
-  </url>
-  <url>
-    <loc>/reference/zround.html</loc>
+    <loc>https://guang-yu-zhu.github.io/toolkit/reference/zround.html</loc>
   </url>
 </urlset>

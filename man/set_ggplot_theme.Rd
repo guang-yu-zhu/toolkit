@@ -13,7 +13,7 @@ None
 This function sets a custom theme for ggplot2 plots with a light background color.
 }
 \details{
-The function loads the ggplot2 library and sets a custom theme with a light background color.
+The function sets various graphical parameters for ggplot2 plots to customize their appearance.
 }
 \examples{
 set_ggplot_theme()

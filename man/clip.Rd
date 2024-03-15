@@ -2,23 +2,22 @@
 % Please edit documentation in R/clip.R
 \name{clip}
 \alias{clip}
-\title{Save output to clipboard}
+\title{Capture output and copy to clipboard}
 \usage{
 clip(obj, file = "output.txt")
 }
 \arguments{
-\item{obj}{the object for save}
+\item{obj}{The R object whose output is to be captured.}
 
-\item{file}{the file name}
+\item{file}{The file to which the output will be written (default: "output.txt").}
 }
 \value{
-
+None
 }
 \description{
-Save string output to output.txt and save in clipboard
+This function captures the output of an R object and writes it to a file, then copies the contents of the file to the clipboard.
 }
 \examples{
-library(dplyr,warn.conflicts = FALSE)
 summary(glm(case ~ spontaneous+induced,data = infert,family = binomial()))\%>\%clip()
 
 }

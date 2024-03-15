@@ -1,5 +1,5 @@
 Package: toolkit
-Title: Usefull R functions
+Title: What the Package Does (One Line, Title Case)
 Version: 0.0.1
 Authors@R: 
     person("Guangyu", "Zhu", , "guangyuzhu@uri.edu", role = c("aut", "cre"))
@@ -8,7 +8,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.1.2
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

@@ -1,28 +1,22 @@
-#' Save output to clipboard
+#' Capture output and copy to clipboard
 #'
-#' Save string output to output.txt and save in clipboard
-#' @import dplyr clipr kableExtra readr
-#' @param obj the object for save
-#' @param file the file name
+#' This function captures the output of an R object and writes it to a file, then copies the contents of the file to the clipboard.
 #'
-#' @return
+#' @param obj The R object whose output is to be captured.
+#' @param file The file to which the output will be written (default: "output.txt").
+#' 
+#' @return None
+#' 
 #' @examples
-#' library(dplyr,warn.conflicts = FALSE)
 #' summary(glm(case ~ spontaneous+induced,data = infert,family = binomial()))%>%clip()
 #'
+#' @importFrom magrittr %>%
+#' @importFrom clipr write_clip
 #' @export
-#'
-clip<-function(obj,file = "output.txt"){
-  # library(tidyverse)
-  # library(readr)
-  # library(clipr)
-  # if (!require("pacman")) install.packages("pacman")
-  # pacman::p_load(tidyverse,kableExtra,readr,clipr)
-
-  library(dplyr,warn.conflicts = FALSE)
-  obj%>%
-    capture.output(file = "output.txt")
-  read_file("output.txt")%>%
+clip <- function(obj, file = "output.txt") {
+  obj %>%
+    capture.output(file = file)
+  	readr::read_file(file) %>%
     clipr::write_clip(object_type = "character",
                       allow_non_interactive = TRUE)
 }

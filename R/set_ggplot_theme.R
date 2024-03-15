@@ -3,22 +3,23 @@
 #' This function sets a custom theme for ggplot2 plots with a light background color.
 #'
 #' @details
-#' The function loads the ggplot2 library and sets a custom theme with a light background color.
-#'
+#' The function sets various graphical parameters for ggplot2 plots to customize their appearance.
+#' 
 #' @return None
-#'
+#' 
 #' @examples
 #' set_ggplot_theme()
-#'
-#' @import ggplot2
+#' 
+#' @importFrom ggplot2 theme_bw theme element_rect theme_set
 #' @export
-set_ggplot_theme<-function(){
-  library(ggplot2)
-  bg='#FAFAFA'
-  my_light_theme <- theme_bw(base_size = 14)+
-    theme(plot.background = element_rect(fill = bg),
-          panel.background= element_rect(fill = bg),
-          legend.background= element_rect(fill = bg),
-          legend.key = element_rect(fill = bg))
-  theme_set(my_light_theme)
+set_ggplot_theme <- function() {
+  bg <- '#FAFAFA'
+  my_light_theme <- ggplot2::theme_bw(base_size = 14) +
+    ggplot2::theme(
+      plot.background = ggplot2::element_rect(fill = bg),
+      panel.background = ggplot2::element_rect(fill = bg),
+      legend.background = ggplot2::element_rect(fill = bg),
+      legend.key = ggplot2::element_rect(fill = bg)
+    )
+  ggplot2::theme_set(my_light_theme)
 }

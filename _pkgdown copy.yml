@@ -23,6 +23,7 @@ reference:
   - meanSD
   - range
   - count_percent
+
 - title: Rmd functions
   desc: >
    Rmd functions
@@ -33,11 +34,12 @@ reference:
   - zkbl
   - print_table
   - print_table_stripe
+
 - title: Tool functions
   desc: >
    Tool functions
   contents:
-  - cleanFolder
+  - cleanfolder
   - clip
   - sourceDir
 

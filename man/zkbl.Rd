@@ -2,7 +2,7 @@
 % Please edit documentation in R/zkbl.R
 \name{zkbl}
 \alias{zkbl}
-\title{Create a styled LaTeX table using kableExtra with additional options}
+\title{Format and style a table for LaTeX output}
 \usage{
 zkbl(table, booktabs = TRUE, escape = TRUE, ...)
 }
@@ -16,13 +16,12 @@ zkbl(table, booktabs = TRUE, escape = TRUE, ...)
 \item{...}{Additional arguments to be passed to the kbl function.}
 }
 \value{
-A LaTeX table formatted using kableExtra package.
+A LaTeX-formatted table with specified styling.
 }
 \description{
-This function creates a LaTeX table using the kableExtra package with the provided options.
+This function formats and styles a table for LaTeX output using the kableExtra package.
 }
 \examples{
-library(kableExtra)
 df <- data.frame(x = 1:5, y = letters[1:5])
 zkbl(df)
 

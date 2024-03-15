@@ -22,7 +22,6 @@ A LaTeX table with alternating row colors.
 This function prints a LaTeX table using the kableExtra package with alternating row colors.
 }
 \examples{
-library(kableExtra)
 df <- data.frame(x = 1:5, y = letters[1:5])
 print_table_stripe(df)
 

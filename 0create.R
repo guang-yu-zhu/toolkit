@@ -7,14 +7,15 @@ file.edit('README.md')
 #-----
 library(pkgdown)
 library(roxygen2)
-#usethis::use_github_action("pkgdown")
-#usethis::use_pkgdown()
 roxygenise(clean = TRUE)
+clean_site()
+build_reference()
 build_site()
 preview_site()
 
 #  usethis -----
 library(usethis)
+use_pipe()
 use_description(fields = list(Language = "es"))
 edit_r_profile(scope = c("user", "project"))
 use_mit_license()       # need a LICENSE file

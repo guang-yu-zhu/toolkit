@@ -12,19 +12,19 @@
 #' @examples
 #' rmd_opts_chunk_set()
 #'
-#' @import knitr
+#' @importFrom knitr opts_chunk is_latex_output
 #' @export
 rmd_opts_chunk_set<-function(){
   # get file name and use it to decide fig and cache path
-  infile <- knitr:::knit_concord$get("infile")
+  infile <- knitr::knit_concord$get("infile")
   infile <- sub('\\.rmd$', '', infile)
   fig.path<-paste0('fig/',infile,'/')
   cache.path<-paste0('cache/',infile,'/')
 
   #  ---------
-  if(is_latex_output()){
+  if(knitr::is_latex_output()){
     options(digits=4,width=100)
-    opts_chunk$set(
+    knitr::opts_chunk$set(
       comment="##",par=TRUE,
       message=FALSE,warning=FALSE,error=FALSE,
       split=TRUE,include=TRUE,cache=TRUE,echo = TRUE,

@@ -4,7 +4,7 @@
 \name{toolkit-package}
 \alias{toolkit}
 \alias{toolkit-package}
-\title{toolkit: Usefull R functions}
+\title{toolkit: What the Package Does (One Line, Title Case)}
 \description{
 What the package does (one paragraph).
 }

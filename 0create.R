@@ -9,7 +9,7 @@ library(pkgdown)
 library(roxygen2)
 roxygenise(clean = TRUE)
 clean_site()
-build_reference()
+build_home_index()
 build_site()
 preview_site()
 

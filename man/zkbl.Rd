@@ -22,7 +22,5 @@ A LaTeX-formatted table with specified styling.
 This function formats and styles a table for LaTeX output using the kableExtra package.
 }
 \examples{
-df <- data.frame(x = 1:5, y = letters[1:5])
-zkbl(df)
 
 }

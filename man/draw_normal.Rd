@@ -19,7 +19,6 @@ This function creates a ggplot2 plot representing the probability density functi
 of a normal distribution with specified mean and standard deviation.
 }
 \examples{
-# Example usage:
-# draw_normal(mu = 0, sd = 1)
+draw_normal(mu = 0, sd = 1)
 
 }

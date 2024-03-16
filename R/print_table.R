@@ -12,8 +12,6 @@
 #' @return A styled table either in HTML or LaTeX format.
 #'
 #' @examples
-#' df <- data.frame(x = 1:5, y = letters[1:5])
-#' print_table(df)
 #'
 #' @importFrom magrittr %>%
 #' @importFrom kableExtra kbl kable_styling row_spec

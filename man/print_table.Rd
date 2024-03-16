@@ -33,7 +33,5 @@ A styled table either in HTML or LaTeX format.
 This function prints a styled table either in HTML or LaTeX format based on the output document type.
 }
 \examples{
-df <- data.frame(x = 1:5, y = letters[1:5])
-print_table(df)
 
 }

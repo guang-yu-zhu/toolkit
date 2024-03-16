@@ -10,8 +10,6 @@
 #' @return A LaTeX table with alternating row colors.
 #'
 #' @examples
-#' df <- data.frame(x = 1:5, y = letters[1:5])
-#' print_table_stripe(df)
 #'
 #' @importFrom kableExtra kbl kable_styling row_spec
 #' @export

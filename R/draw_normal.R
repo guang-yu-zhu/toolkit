@@ -9,8 +9,7 @@
 #' @return A ggplot2 object representing the normal distribution plot.
 #'
 #' @examples
-#' # Example usage:
-#' # draw_normal(mu = 0, sd = 1)
+#' draw_normal(mu = 0, sd = 1)
 #'
 #' @import ggplot2
 #'

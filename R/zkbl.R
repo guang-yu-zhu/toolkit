@@ -6,13 +6,11 @@
 #' @param booktabs Logical indicating whether to use the booktabs formatting (default: TRUE).
 #' @param escape Logical indicating whether to escape special characters in the table (default: TRUE).
 #' @param ... Additional arguments to be passed to the kbl function.
-#' 
+#'
 #' @return A LaTeX-formatted table with specified styling.
-#' 
+#'
 #' @examples
-#' df <- data.frame(x = 1:5, y = letters[1:5])
-#' zkbl(df)
-#' 
+#'
 #' @importFrom kableExtra kbl kable_styling
 #' @export
 zkbl <- function(table, booktabs = TRUE, escape = TRUE, ...) {

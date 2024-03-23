@@ -33,8 +33,7 @@ navbar:
       href: http://guangyuzhu.rbind.io
 reference:
 - title: Data Summary
-  desc: >
-   Data Summary
+  desc:
   contents:
   - draw_normal
   - zround
@@ -42,8 +41,7 @@ reference:
   - range
   - count_percent
 - title: Rmd functions
-  desc: >
-   Rmd functions
+  desc:
   contents:
   - rmd_knit_hook_set
   - rmd_opts_chunk_set
@@ -52,8 +50,7 @@ reference:
   - print_table
   - print_table_stripe
 - title: Tool functions
-  desc: >
-   Tool functions
+  desc:
   contents:
   - cleanFolder
   - clip

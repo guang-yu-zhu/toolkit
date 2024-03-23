@@ -13,10 +13,11 @@
 #'
 #' @importFrom kableExtra kbl kable_styling
 #' @export
-zkbl <- function(table, booktabs = TRUE, escape = TRUE, ...) {
+zkbl <- function(table, booktabs = TRUE, escape = TRUE,format.args = list(decimal.mark = '.', big.mark = ","),
+                 ...) {
   options(knitr.kable.NA = '')
   table %>%
-    kableExtra::kbl(booktabs = booktabs, escape = escape,format.args = list(decimal.mark = '.', big.mark = ","),...) %>%
+    kableExtra::kbl(booktabs = booktabs, escape = escape,format.args = format.args,...) %>%
     kableExtra::kable_styling(c("striped", "hover"), full_width = FALSE,
                   latex_options = "HOLD_position", fixed_thead = TRUE)
 }

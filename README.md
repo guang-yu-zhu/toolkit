@@ -1,4 +1,4 @@
-# toolkit <img src="https://github.com/guang-yu-zhu/toolkit/raw/master/img/logo.jpg" align="right" width=15% />
+# toolkit <img src="man/figures/logo.png" align="right" width=15% />
 
   [![R build status](https://github.com/microsoft/wpa/workflows/R-CMD-check/badge.svg)](https://github.com/guang-yu-zhu/toolkit)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT/)

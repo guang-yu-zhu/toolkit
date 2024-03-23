@@ -6,7 +6,16 @@
 \alias{toolkit-package}
 \title{toolkit: What the Package Does (One Line, Title Case)}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 What the package does (one paragraph).
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://guang-yu-zhu.github.io/toolkit/}
+}
+
 }
 \author{
 \strong{Maintainer}: Guangyu Zhu \email{guangyuzhu@uri.edu}

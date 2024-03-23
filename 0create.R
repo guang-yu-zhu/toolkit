@@ -5,11 +5,12 @@ file.edit('NAMESPACE')
 file.edit('DESCRIPTION')
 file.edit('README.md')
 #-----
+pkgdown::build_favicons() # run once when you have your man/figures/logo.png
 library(pkgdown)
 library(roxygen2)
 roxygenise(clean = TRUE)
 clean_site()
-build_home_index()
+build_home()
 build_site()
 preview_site()
 

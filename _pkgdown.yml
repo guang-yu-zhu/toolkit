@@ -1,17 +1,36 @@
-url: https://guang-yu-zhu.github.io/toolkit/
+url: http://guang-yu-zhu.github.io/toolkit/
 template:
   package: zpreferably
   bootstrap: 3
   params:
     ganalytics:
-    toggle: manual
+    toggle: manual # Manual Light/Dark Toggle
 home:
-  title: Toolkit
-  description: My toolkit package
+  title: toolkit -
+  description:
 authors:
   Guangyu Zhu:
     href: https://guangyuzhu.rbind.io/
-
+development:
+  mode: auto
+repo:
+  url:
+    home: https://github.com/guang-yu-zhu/toolkit
+  branch: main
+navbar:
+  structure:
+    left:  [home, reference, news]
+    right: [personal,github]
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Functions
+      href: reference/index.html
+    personal:
+      icon: fa-user
+      href: http://guangyuzhu.rbind.io
 reference:
 - title: Data Summary
   desc: >
@@ -39,28 +58,8 @@ reference:
   - cleanFolder
   - clip
   - sourceDir
-
-
-navbar:
-  structure:
-    left:
-    - home
-    - reference
-    - news
-
-  components:
-    home:
-      icon: fas fa-home fa-lg
-      href: index.html
-    reference:
-      text: Functions
-      href: reference/index.html
-    news:
-      text: Changelog
-      href: news/index.html
+  - summary_w2
 footer:
   structure:
-    left:
+    left: developed_by
     right:
-
-

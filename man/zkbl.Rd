@@ -4,7 +4,13 @@
 \alias{zkbl}
 \title{Format and style a table for LaTeX output}
 \usage{
-zkbl(table, booktabs = TRUE, escape = TRUE, ...)
+zkbl(
+  table,
+  booktabs = TRUE,
+  escape = TRUE,
+  format.args = list(decimal.mark = ".", big.mark = ","),
+  ...
+)
 }
 \arguments{
 \item{table}{The data table to be formatted.}

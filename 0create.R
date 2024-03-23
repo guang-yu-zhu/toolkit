@@ -1,5 +1,5 @@
 file.edit('.gitignore')
-#file.edit('.github/workflows/_pkgdown.yml')
+file.edit('.github/workflows/_pkgdown.yml')
 file.edit('_pkgdown.yml')
 file.edit('NAMESPACE')
 file.edit('DESCRIPTION')

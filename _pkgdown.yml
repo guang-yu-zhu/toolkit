@@ -43,8 +43,8 @@ reference:
 - title: Rmd functions
   desc:
   contents:
-  - rmd_knit_hook_set
-  - rmd_opts_chunk_set
+  - rmd_hook_set
+  - rmd_opts_set
   - set_ggplot_theme
   - zkbl
   - print_table
@@ -52,6 +52,7 @@ reference:
 - title: Tool functions
   desc:
   contents:
+  - cut_txt
   - cleanFolder
   - clip
   - sourceDir

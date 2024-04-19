@@ -10,16 +10,24 @@
 #' @return None
 #'
 #' @examples
-#' rmd_opts_chunk_set()
+#' rmd_opts_set()
 #'
-#' @importFrom knitr opts_chunk is_latex_output current_input
+#' @importFrom knitr opts_chunk is_latex_output current_input set_alias
 #' @export
-rmd_opts_chunk_set<-function(){
+rmd_opts_set<-function(){
+  # doc.type   ####
+  doc.type <- knitr::opts_knit$get('rmarkdown.pandoc.to')
+  if(is.null(doc.type)) doc.type<-'html'
+  options(knitr.table.format = doc.type)
+
+  # fig and cache path   ####
+  knitr::set_alias(h = 'fig.height', w = 'fig.width')
   # get file name and use it to decide fig and cache path
   infile <- knitr::current_input()
   infile <- sub('\\.rmd$', '', infile)
   fig.path<-paste0('fig/',infile,'/')
   cache.path<-paste0('cache/',infile,'/')
+
 
   #  ---------
   if(knitr::is_latex_output()){
@@ -33,7 +41,7 @@ rmd_opts_chunk_set<-function(){
       fig.path=fig.path,cache.path=cache.path,
       size='small',outputsize='small',
       tidy=TRUE,tidy.opts = list(width.cutoff=60,arrow=TRUE,blank=FALSE),
-      columns=1,ft.keepnext = FALSE)
+      columns=1,ft.keepnext = FALSE,crop=TRUE)
     #knit_hooks$set(output = zoutput)
 
   }else{

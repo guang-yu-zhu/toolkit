@@ -12,12 +12,14 @@
 #'   `digits` decimal places.
 #'
 #' @examples
-#' zround(3.14159)
+#' zround(10*pi)
 #' zround(c(1.234, 5.6789), digits = 1)
 #'
 #' @export
 zround <- function(x, digits = 2) {
-  x = sprintf(paste0("%.", digits, "f"), x)
+  x = format(round(x, digits), trim = T,
+	  nsmall = digits)
+  #x = sprintf(paste0("%.", digits, "f"), x)
   x
 }
 

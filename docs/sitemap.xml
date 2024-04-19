@@ -28,6 +28,9 @@
     <loc>http://guang-yu-zhu.github.io/toolkit/reference/count_percent.html</loc>
   </url>
   <url>
+    <loc>http://guang-yu-zhu.github.io/toolkit/reference/cut_txt.html</loc>
+  </url>
+  <url>
     <loc>http://guang-yu-zhu.github.io/toolkit/reference/draw_normal.html</loc>
   </url>
   <url>
@@ -49,10 +52,10 @@
     <loc>http://guang-yu-zhu.github.io/toolkit/reference/range.html</loc>
   </url>
   <url>
-    <loc>http://guang-yu-zhu.github.io/toolkit/reference/rmd_knit_hook_set.html</loc>
+    <loc>http://guang-yu-zhu.github.io/toolkit/reference/rmd_hook_set.html</loc>
   </url>
   <url>
-    <loc>http://guang-yu-zhu.github.io/toolkit/reference/rmd_opts_chunk_set.html</loc>
+    <loc>http://guang-yu-zhu.github.io/toolkit/reference/rmd_opts_set.html</loc>
   </url>
   <url>
     <loc>http://guang-yu-zhu.github.io/toolkit/reference/set_ggplot_theme.html</loc>
@@ -62,9 +65,6 @@
   </url>
   <url>
     <loc>http://guang-yu-zhu.github.io/toolkit/reference/summary_w2.html</loc>
-  </url>
-  <url>
-    <loc>http://guang-yu-zhu.github.io/toolkit/reference/toolkit-package.html</loc>
   </url>
   <url>
     <loc>http://guang-yu-zhu.github.io/toolkit/reference/zkbl.html</loc>

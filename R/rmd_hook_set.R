@@ -4,22 +4,30 @@
 #'
 #' @details
 #' The function sets inline knit hook to format numeric values and par hook to customize plotting parameters.
-#' 
+#'
 #' @return None
-#' 
+#'
 #' @examples
-#' rmd_knit_hook_set()
-#' 
+#' rmd_hook_set()
+#'
 #' @importFrom knitr knit_hooks
 #' @export
-rmd_knit_hook_set<-function(){
-  # inline hook
+rmd_hook_set<-function(){
+  # inline hook ####
   knitr::knit_hooks$set(inline = function(x) {
     if(is.numeric(x)){
       x <- sprintf("%1.2f", x)
     }
     paste(as.character(x), collapse = ', ')
   })
+  # crop #########
+  # Add the zhook_pdfcrop function to allow control over whether cropping will be applied by setting crop=TRUE.
+  zhook_pdfcrop<-function (before, options, envir) {
+    if (options$crop)
+      knitr::hook_pdfcrop(before, options, envir)
+  }
+  knitr::knit_hooks$set(crop=zhook_pdfcrop)
+
 
   bg='#FAFAFA'
   knitr::knit_hooks$set(

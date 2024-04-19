@@ -22,7 +22,7 @@ formats it to a specified number of decimal places. The function
 returns a character vector with the numbers formatted as strings.
 }
 \examples{
-zround(3.14159)
+zround(10*pi)
 zround(c(1.234, 5.6789), digits = 1)
 
 }

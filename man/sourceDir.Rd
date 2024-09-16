@@ -6,6 +6,9 @@
 \usage{
 sourceDir(path, trace = TRUE, ...)
 }
+\arguments{
+\item{path}{The directory path to source files from.}
+}
 \description{
 Source all R scripts in a folder
 }

@@ -2,13 +2,28 @@
 % Please edit documentation in R/sourceDir.R
 \name{sourceDir}
 \alias{sourceDir}
-\title{Source all R scripts in a folder}
+\title{Source All R Scripts in a Directory}
 \usage{
 sourceDir(path, trace = TRUE, ...)
 }
 \arguments{
-\item{path}{The directory path to source files from.}
+\item{path}{A character string specifying the path to the directory containing the R scripts.}
+
+\item{trace}{A logical value indicating whether to print the names of the files being sourced. Default is TRUE.}
+
+\item{...}{Additional arguments to be passed to the \code{\link[base]{source}} function.}
+}
+\value{
+Invisible NULL. This function is called for its side effects.
 }
 \description{
-Source all R scripts in a folder
+This function sources all R scripts from a specified directory. It recursively searches for files
+with extensions \code{.R}, \code{.r}, \code{.S}, \code{.s}, \code{.Q}, and \code{.q} and sources them into the current environment.
+}
+\examples{
+\dontrun{
+  # Source all R scripts in the 'R_scripts' directory
+  sourceDir("path/to/R_scripts")
+}
+
 }

@@ -10,7 +10,7 @@
 #'
 #' @return A character vector with each number in `x` formatted to
 #'   `digits` decimal places.
-#'
+#' @importFrom formattable formattable
 #' @examples
 #'
 #' x=c(5.555,1.115,-0.002)

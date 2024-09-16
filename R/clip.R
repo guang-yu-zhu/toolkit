@@ -12,6 +12,7 @@
 #'
 #' @importFrom magrittr %>%
 #' @importFrom clipr write_clip
+#' @importFrom readr read_file
 #' @export
 clip <- function(obj, file = "output.txt") {
   obj %>%

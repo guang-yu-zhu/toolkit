@@ -10,6 +10,8 @@ print_table(
   digits = 2,
   print_rownames = FALSE,
   fontsize = 9,
+  big.mark = ",",
+  na_str = "",
   ...
 )
 }
@@ -33,5 +35,5 @@ A styled table either in HTML or LaTeX format.
 This function prints a styled table either in HTML or LaTeX format based on the output document type.
 }
 \examples{
-
+head(mtcars)\%>\%print_table()
 }

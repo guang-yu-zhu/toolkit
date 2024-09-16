@@ -16,7 +16,7 @@ Chapters are identified by markers like "第*章".'><meta property="og:image" co
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"><!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" media="(prefers-color-scheme: dark)"><!-- preferably CSS --><link rel="stylesheet" href="../preferably.css"><link id="css-code-light" rel="stylesheet" href="../code-color-scheme-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"><link id="css-code-dark" rel="stylesheet" href="../code-color-scheme-dark.css" media="(prefers-color-scheme: dark)"><script src="../darkswitch.js"></script></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -38,7 +38,7 @@ Chapters are identified by markers like "第*章".'><meta property="og:image" co
       <ul class="nav navbar-nav"><li>
   <a href="../index.html">
     <span class="fas fa-home fa-lg"></span>
-     
+
   </a>
 </li>
 <li>
@@ -52,34 +52,34 @@ Chapters are identified by markers like "第*章".'><meta property="og:image" co
             <span class="fas fa-adjust fa-lg"></span>
           </a>
         </li>
-        
+
         <li>
   <a href="http://guangyuzhu.rbind.io" class="external-link">
     <span class="fa fa-user"></span>
-     
+
   </a>
 </li>
 <li>
   <a href="https://github.com/guang-yu-zhu/toolkit" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
-        
-        
+
+
 
 
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Cut text file into chunks with specified number of chapters</h1>
-    
+
     <div class="hidden name"><code>cut_txt.Rd</code></div>
     </div>
 
@@ -94,30 +94,30 @@ Chapters are identified by markers like "第*章".</p>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>file</dt>
+
+
+<dl><dt id="arg-file">file<a class="anchor" aria-label="anchor" href="#arg-file"></a></dt>
 <dd><p>The path to the text file to be cut.</p></dd>
 
 
-<dt>marker</dt>
+<dt id="arg-marker">marker<a class="anchor" aria-label="anchor" href="#arg-marker"></a></dt>
 <dd><p>The regular expression pattern to identify chapters in the text file.</p></dd>
 
 
-<dt>num_chapters</dt>
+<dt id="arg-num-chapters">num_chapters<a class="anchor" aria-label="anchor" href="#arg-num-chapters"></a></dt>
 <dd><p>The number of chapters to include in each chunk. Default is 25.</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>NULL (The function writes output files.)</p>
+    <p>NULL (The function writes output files.)</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="fu">cut_txt</span><span class="op">(</span>file <span class="op">=</span> <span class="st">"your_file.txt"</span>, marker <span class="op">=</span> <span class="st">"第.*章"</span>, num_chapters <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -137,10 +137,10 @@ Chapters are identified by markers like "第*章".</p>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

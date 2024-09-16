@@ -6,7 +6,7 @@ template:
     ganalytics:
     toggle: manual # Manual Light/Dark Toggle
 home:
-  title: toolkit -
+  title: toolkit
   description:
 authors:
   Guangyu Zhu:
@@ -33,28 +33,26 @@ navbar:
       href: http://guangyuzhu.rbind.io
 reference:
 - title: Data Summary
-  desc: >
-   Data Summary
+  desc:
   contents:
   - draw_normal
   - zround
   - meanSD
-  - range
+  - zrange
   - count_percent
 - title: Rmd functions
-  desc: >
-   Rmd functions
+  desc:
   contents:
-  - rmd_knit_hook_set
-  - rmd_opts_chunk_set
+  - rmd_hook_set
+  - rmd_opts_set
   - set_ggplot_theme
   - zkbl
   - print_table
   - print_table_stripe
 - title: Tool functions
-  desc: >
-   Tool functions
+  desc:
   contents:
+  - cut_txt
   - cleanFolder
   - clip
   - sourceDir

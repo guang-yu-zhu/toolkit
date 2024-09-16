@@ -13,6 +13,7 @@
 #' rmd_opts_set()
 #'
 #' @importFrom knitr opts_chunk is_latex_output current_input set_alias
+#' @importFrom tools file_path_sans_ext
 #' @export
 rmd_opts_set<-function(){
   # doc.type   ####
@@ -24,28 +25,32 @@ rmd_opts_set<-function(){
   knitr::set_alias(h = 'fig.height', w = 'fig.width')
   # get file name and use it to decide fig and cache path
   infile <- knitr::current_input()
-  infile <- sub('\\.rmd$', '', infile)
+  infile <- tools::file_path_sans_ext(infile) # remove extension
   fig.path<-paste0('fig/',infile,'/')
   cache.path<-paste0('cache/',infile,'/')
 
+  knitr::opts_chunk$set(
+    comment="##",par=TRUE,
+    message=FALSE,warning=FALSE,error=FALSE,
+    include=TRUE,cache=TRUE,echo = TRUE,
+    fig.path=fig.path,cache.path=cache.path,
+    fig.height=4, fig.width=6,
+    fig.align='center',fig.show='hold',
+    size='small',outputsize='small',
+    split=TRUE, # Whether to split the output into separate files, only works for .Rnw, .Rtex, and .Rhtml documents.
+    tidy=FALSE, # tidy=FALSE will keep how the code is typed
+    columns=1,crop=TRUE
+  )
 
   #  ---------
   if(knitr::is_latex_output()){
     options(digits=4,width=100)
     knitr::opts_chunk$set(
-      comment="##",par=TRUE,
-      message=FALSE,warning=FALSE,error=FALSE,
-      split=TRUE,include=TRUE,cache=TRUE,echo = TRUE,
-      fig.height=4, fig.width=6, out.width='0.6\\textwidth',
-      fig.align='center',fig.pos='htbp', fig.show='hold',
-      fig.path=fig.path,cache.path=cache.path,
-      size='small',outputsize='small',
-      tidy=TRUE,tidy.opts = list(width.cutoff=60,arrow=TRUE,blank=FALSE),
-      columns=1,ft.keepnext = FALSE,crop=TRUE)
-    #knit_hooks$set(output = zoutput)
-
+      out.width='0.6\\textwidth',fig.pos='htbp',
+      tidy.opts = list(width.cutoff=60,arrow=TRUE,blank=FALSE,ft.keepnext = FALSE)
+    )
   }else{
-    options(digits = 4, width = 80,
+    options(digits = 4, width = 200,
             dplyr.print_min = 6,
             dplyr.print_max = 6,
             htmltools.dir.version = FALSE,
@@ -54,15 +59,10 @@ rmd_opts_set<-function(){
     #knit_theme$set("default") # peaksea, default, autumn
     knitr::opts_chunk$set(
       class.source="code-R-source",class.output="code-R-output",
-      comment="##",par=TRUE,
-      collapse=FALSE,
-      message=FALSE,warning=FALSE,error=FALSE,
-      split=TRUE,include=TRUE,cache=TRUE,echo = TRUE,
-      fig.height = 4, fig.width = 6, out.width = '60%',dev='svg', # svg is more clear than png
-      fig.align = 'center',fig.showtext = TRUE,
-      fig.path=fig.path,cache.path=cache.path,
-      tidy=TRUE,tidy.opts = list(width.cutoff = 80,arrow=TRUE,blank=FALSE,
-                                 ft.keepnext = FALSE)
+      collapse=FALSE, # collapse all the source and output blocks from one code chunk into a single block
+      fig.showtext = TRUE,
+      out.width = '60%',dev='png', # svg is more clear than png
+      tidy.opts = list(width.cutoff = 100,arrow=TRUE,blank=FALSE,ft.keepnext = FALSE)
     )
   }
 }

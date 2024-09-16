@@ -1,5 +1,5 @@
 Package: toolkit
-Title: What the Package Does (One Line, Title Case)
+Title: My tool function for R and Rmarkdown
 Version: 0.0.1
 Authors@R: 
     person("Guangyu", "Zhu", , "guangyuzhu@uri.edu", role = c("aut", "cre"))
@@ -8,8 +8,11 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.2
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://guang-yu-zhu.github.io/toolkit/
+Imports:  clipr,  dplyr,  flextable,  ggplot2,  kableExtra,  knitr,  magrittr,  pacman,  readxl,  stringr,  tibble
+URL: http://guang-yu-zhu.github.io/toolkit
+BugReports: https://github.com/guang-yu-zhu/toolkit/issues
+

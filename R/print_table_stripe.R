@@ -9,7 +9,6 @@
 #'
 #' @return A LaTeX table with alternating row colors.
 #'
-#' @examples
 #'
 #' @importFrom kableExtra kbl kable_styling row_spec
 #' @export

@@ -20,6 +20,7 @@ rmd_hook_set<-function(){
     }
     paste(as.character(x), collapse = ', ')
   })
+
   # crop #########
   # Add the zhook_pdfcrop function to allow control over whether cropping will be applied by setting crop=TRUE.
   zhook_pdfcrop<-function (before, options, envir) {
@@ -28,7 +29,7 @@ rmd_hook_set<-function(){
   }
   knitr::knit_hooks$set(crop=zhook_pdfcrop)
 
-
+  # par #####
   bg='#FAFAFA'
   knitr::knit_hooks$set(
     par=function(before, options, envir){

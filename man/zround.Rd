@@ -4,7 +4,7 @@
 \alias{zround}
 \title{Round and Format Numbers to Specific Decimal Places}
 \usage{
-zround(x, digits = 2)
+zround(x, digits = 2, method = 1)
 }
 \arguments{
 \item{x}{A numeric vector or a single numeric value.}
@@ -22,7 +22,11 @@ formats it to a specified number of decimal places. The function
 returns a character vector with the numbers formatted as strings.
 }
 \examples{
-zround(10*pi)
-zround(c(1.234, 5.6789), digits = 1)
+
+x=c(5.555,1.115,-0.002)
+zround(x,method=1)
+zround(x,method=2)
+formatC(x, digits = 2, format = "f")
+formattable::formattable(x, digits = 2, format = "f")
 
 }

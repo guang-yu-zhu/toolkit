@@ -10,6 +10,7 @@
 #' @return A LaTeX-formatted table with specified styling.
 #'
 #' @examples
+#' zkbl(mtcars[1:5,])
 #'
 #' @importFrom kableExtra kbl kable_styling
 #' @export

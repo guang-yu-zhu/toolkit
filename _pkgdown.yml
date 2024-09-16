@@ -6,7 +6,7 @@ template:
     ganalytics:
     toggle: manual # Manual Light/Dark Toggle
 home:
-  title: toolkit -
+  title: toolkit
   description:
 authors:
   Guangyu Zhu:
@@ -38,7 +38,7 @@ reference:
   - draw_normal
   - zround
   - meanSD
-  - range
+  - zrange
   - count_percent
 - title: Rmd functions
   desc:

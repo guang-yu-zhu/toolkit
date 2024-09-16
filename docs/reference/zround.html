@@ -17,7 +17,7 @@ returns a character vector with the numbers formatted as strings."><meta propert
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"><!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" media="(prefers-color-scheme: dark)"><!-- preferably CSS --><link rel="stylesheet" href="../preferably.css"><link id="css-code-light" rel="stylesheet" href="../code-color-scheme-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"><link id="css-code-dark" rel="stylesheet" href="../code-color-scheme-dark.css" media="(prefers-color-scheme: dark)"><script src="../darkswitch.js"></script></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -39,7 +39,7 @@ returns a character vector with the numbers formatted as strings."><meta propert
       <ul class="nav navbar-nav"><li>
   <a href="../index.html">
     <span class="fas fa-home fa-lg"></span>
-     
+
   </a>
 </li>
 <li>
@@ -53,34 +53,34 @@ returns a character vector with the numbers formatted as strings."><meta propert
             <span class="fas fa-adjust fa-lg"></span>
           </a>
         </li>
-        
+
         <li>
   <a href="http://guangyuzhu.rbind.io" class="external-link">
     <span class="fa fa-user"></span>
-     
+
   </a>
 </li>
 <li>
   <a href="https://github.com/guang-yu-zhu/toolkit" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
-        
-        
+
+
 
 
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Round and Format Numbers to Specific Decimal Places</h1>
-    
+
     <div class="hidden name"><code>zround.Rd</code></div>
     </div>
 
@@ -91,34 +91,40 @@ returns a character vector with the numbers formatted as strings.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">zround</span><span class="op">(</span><span class="va">x</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">zround</span><span class="op">(</span><span class="va">x</span>, digits <span class="op">=</span> <span class="fl">2</span>, method <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>x</dt>
+
+
+<dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>A numeric vector or a single numeric value.</p></dd>
 
 
-<dt>digits</dt>
+<dt id="arg-digits">digits<a class="anchor" aria-label="anchor" href="#arg-digits"></a></dt>
 <dd><p>An integer indicating the number of decimal places
 to format the numbers. Defaults to 2.</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>A character vector with each number in <code>x</code> formatted to
+    <p>A character vector with each number in <code>x</code> formatted to
 <code>digits</code> decimal places.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">zround</span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="va">pi</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "31.42"</span>
-<span class="r-in"><span><span class="fu">zround</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.234</span>, <span class="fl">5.6789</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1.2" "5.7"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">x</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5.555</span>,<span class="fl">1.115</span>,<span class="op">-</span><span class="fl">0.002</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">zround</span><span class="op">(</span><span class="va">x</span>,method<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "5.56" "1.11" "0.00"</span>
+<span class="r-in"><span><span class="fu">zround</span><span class="op">(</span><span class="va">x</span>,method<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "5.55"  "1.11"  "-0.00"</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/formatc.html" class="external-link">formatC</a></span><span class="op">(</span><span class="va">x</span>, digits <span class="op">=</span> <span class="fl">2</span>, format <span class="op">=</span> <span class="st">"f"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "5.55"  "1.11"  "-0.00"</span>
+<span class="r-in"><span><span class="fu">formattable</span><span class="fu">::</span><span class="fu"><a href="https://renkun-ken.github.io/formattable/reference/formattable.html" class="external-link">formattable</a></span><span class="op">(</span><span class="va">x</span>, digits <span class="op">=</span> <span class="fl">2</span>, format <span class="op">=</span> <span class="st">"f"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5.55  1.11  -0.00</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -138,10 +144,10 @@ to format the numbers. Defaults to 2.</p></dd>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

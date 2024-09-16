@@ -28,5 +28,6 @@ A LaTeX-formatted table with specified styling.
 This function formats and styles a table for LaTeX output using the kableExtra package.
 }
 \examples{
+zkbl(mtcars[1:5,])
 
 }

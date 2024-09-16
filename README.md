@@ -6,6 +6,7 @@
   [![CRAN status](https://www.r-pkg.org/badges/version/wpa)](https://CRAN.R-project.org/)
 
 ## Installation
+
 ```R
 devtools::install_github('guang-yu-zhu/toolkit')
 ```

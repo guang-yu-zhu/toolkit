@@ -21,6 +21,3 @@ A LaTeX table with alternating row colors.
 \description{
 This function prints a LaTeX table using the kableExtra package with alternating row colors.
 }
-\examples{
-
-}

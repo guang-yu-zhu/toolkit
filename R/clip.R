@@ -4,19 +4,20 @@
 #'
 #' @param obj The R object whose output is to be captured.
 #' @param file The file to which the output will be written (default: "output.txt").
-#' 
+#'
 #' @return None
-#' 
+#'
 #' @examples
 #' summary(glm(case ~ spontaneous+induced,data = infert,family = binomial()))%>%clip()
 #'
 #' @importFrom magrittr %>%
 #' @importFrom clipr write_clip
 #' @importFrom readr read_file
+#' @importFrom utils capture.output
 #' @export
 clip <- function(obj, file = "output.txt") {
   obj %>%
-    capture.output(file = file)
+    utils::capture.output(file = file)
   	readr::read_file(file) %>%
     clipr::write_clip(object_type = "character",
                       allow_non_interactive = TRUE)

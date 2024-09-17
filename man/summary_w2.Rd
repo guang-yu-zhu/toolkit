@@ -2,17 +2,19 @@
 % Please edit documentation in R/summary_w2.R
 \name{summary_w2}
 \alias{summary_w2}
-\title{Summarize W2 data for a given year}
+\title{Summarize W2 Data for a Given Year}
 \usage{
 summary_w2(year, by_person = FALSE)
 }
 \arguments{
 \item{year}{The year for which W2 data is to be summarized.}
+
+\item{by_person}{Logical indicating whether to summarize the data by person (default: FALSE).}
 }
 \value{
-A summary table of W2 data for the specified year.
+A flextable object representing the summary table of W2 data for the specified year.
 }
 \description{
-This function reads W2 data from an Excel file for a given year ('2023/2323-w2/xlsx'), calculates
+This function reads W2 data from an Excel file for a given year, calculates
 the total amount for each person and category, and generates a summary table.
 }

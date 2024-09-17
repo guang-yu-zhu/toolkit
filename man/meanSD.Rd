@@ -23,5 +23,4 @@ a specified number of decimal places.
 }
 \examples{
 meanSD(c(10.5, 5.3, 7.8), digits = 3)
-
 }

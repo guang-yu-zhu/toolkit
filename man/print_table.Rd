@@ -2,7 +2,7 @@
 % Please edit documentation in R/print_table.R
 \name{print_table}
 \alias{print_table}
-\title{Print a styled table for HTML or LaTeX output}
+\title{Print a Styled Table for HTML or LaTeX Output}
 \usage{
 print_table(
   df,
@@ -18,22 +18,27 @@ print_table(
 \arguments{
 \item{df}{The data frame to be formatted as a table.}
 
-\item{caption}{The caption for the table (default: '').}
+\item{caption}{A character string specifying the caption for the table (default: '').}
 
-\item{digits}{Number of digits to display (default: 2).}
+\item{digits}{An integer indicating the number of digits to display (default: 2).}
 
-\item{print_rownames}{Logical indicating whether to print row names (default: FALSE).}
+\item{print_rownames}{Logical value indicating whether to print row names (default: FALSE).}
 
 \item{fontsize}{Font size for the table (default: 9).}
+
+\item{big.mark}{A character string used as the big mark separator for numbers (default: ',').}
+
+\item{na_str}{A string used to replace missing values (default: '').}
 
 \item{...}{Additional arguments to be passed to the formatting functions.}
 }
 \value{
-A styled table either in HTML or LaTeX format.
+A styled table in HTML or LaTeX format, depending on the document type.
 }
 \description{
-This function prints a styled table either in HTML or LaTeX format based on the output document type.
+This function prints a styled table in either HTML or LaTeX format, depending on the output document type.
 }
 \examples{
-head(mtcars)\%>\%print_table()
+head(mtcars) \%>\% print_table()
+
 }

@@ -11,6 +11,12 @@ zround(x, digits = 2, method = 1)
 
 \item{digits}{An integer indicating the number of decimal places
 to format the numbers. Defaults to 2.}
+
+\item{method}{An integer (1 or 2) specifying the rounding method:
+\itemize{
+\item \code{1}: Uses \code{round()} followed by \code{format()}.
+\item \code{2}: Uses \code{sprintf()} to format the numbers.
+}}
 }
 \value{
 A character vector with each number in \code{x} formatted to
@@ -22,10 +28,9 @@ formats it to a specified number of decimal places. The function
 returns a character vector with the numbers formatted as strings.
 }
 \examples{
-
-x=c(5.555,1.115,-0.002)
-zround(x,method=1)
-zround(x,method=2)
+x = c(5.555, 1.115, -0.002)
+zround(x, method = 1)
+zround(x, method = 2)
 formatC(x, digits = 2, format = "f")
 formattable::formattable(x, digits = 2, format = "f")
 

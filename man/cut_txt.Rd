@@ -4,7 +4,7 @@
 \alias{cut_txt}
 \title{Cut text file into chunks with specified number of chapters}
 \usage{
-cut_txt(file, marker = "第.*章", num_chapters = 25)
+cut_txt(file, marker = "<e7><ac><ac>.*<e7><ab><a0>", num_chapters = 25)
 }
 \arguments{
 \item{file}{The path to the text file to be cut.}
@@ -18,11 +18,11 @@ NULL (The function writes output files.)
 }
 \description{
 This function reads a text file and splits it into chunks where each chunk contains a specified number of chapters.
-Chapters are identified by markers like "第*章".
+Chapters are identified by markers like "\if{html}{\out{<e7>}}\if{html}{\out{<ac>}}\if{html}{\out{<ac>}}*\if{html}{\out{<e7>}}\if{html}{\out{<ab>}}\if{html}{\out{<a0>}}".
 }
 \examples{
 \dontrun{
-cut_txt(file = "your_file.txt", marker = "第.*章", num_chapters = 25)
+cut_txt(file = "your_file.txt", marker = "<e7><ac><ac>.*<e7><ab><a0>", num_chapters = 25)
 }
 
 }

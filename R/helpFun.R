@@ -7,26 +7,30 @@
 #' @param x A numeric vector or a single numeric value.
 #' @param digits An integer indicating the number of decimal places
 #'   to format the numbers. Defaults to 2.
+#' @param method An integer (1 or 2) specifying the rounding method:
+#'   - `1`: Uses `round()` followed by `format()`.
+#'   - `2`: Uses `sprintf()` to format the numbers.
 #'
 #' @return A character vector with each number in `x` formatted to
 #'   `digits` decimal places.
-#' @importFrom formattable formattable
-#' @examples
 #'
-#' x=c(5.555,1.115,-0.002)
-#' zround(x,method=1)
-#' zround(x,method=2)
+#' @importFrom formattable formattable
+#'
+#' @examples
+#' x = c(5.555, 1.115, -0.002)
+#' zround(x, method = 1)
+#' zround(x, method = 2)
 #' formatC(x, digits = 2, format = "f")
 #' formattable::formattable(x, digits = 2, format = "f")
 #'
 #' @export
-zround <- function(x, digits = 2,method=1) {
-  if(method==1){
-    x = format(round(x, digits), trim = T,nsmall = digits)
+zround <- function(x, digits = 2, method = 1) {
+  if (method == 1) {
+    x <- format(round(x, digits), trim = TRUE, nsmall = digits)
+  } else {
+    x <- sprintf(paste0("%.", digits, "f"), x)
   }
-  else{ x = sprintf(paste0("%.", digits, "f"), x)
-  }
-  x
+  return(x)
 }
 
 
@@ -45,10 +49,10 @@ zround <- function(x, digits = 2,method=1) {
 #'
 #' @examples
 #' meanSD(c(10.5, 5.3, 7.8), digits = 3)
-#'
+#' @importFrom stats sd
 #' @export
 meanSD <- function(x, digits = 2) {
-  res1 <- c(mean(x), sd(x))
+  res1 <- c(mean(x), stats::sd(x))
   res2 <- zround(res1, digits = digits)
   res = paste0(res2[1], ' (', res2[2], ')')
   res

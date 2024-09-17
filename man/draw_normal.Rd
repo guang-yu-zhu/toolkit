@@ -2,23 +2,25 @@
 % Please edit documentation in R/draw_normal.R
 \name{draw_normal}
 \alias{draw_normal}
-\title{Draw a normal distribution plot using ggplot2.}
+\title{Draw a normal distribution plot using ggplot2}
 \usage{
 draw_normal(mu = 0, sd = 1, color_density = "blue")
 }
 \arguments{
-\item{mu}{Mean of the normal distribution.}
+\item{mu}{Mean of the normal distribution. Default is 0.}
 
-\item{sd}{Standard deviation of the normal distribution.}
+\item{sd}{Standard deviation of the normal distribution. Default is 1.}
+
+\item{color_density}{Color of the density line. Default is "blue".}
 }
 \value{
 A ggplot2 object representing the normal distribution plot.
 }
 \description{
 This function creates a ggplot2 plot representing the probability density function (PDF)
-of a normal distribution with specified mean and standard deviation.
+of a normal distribution with a specified mean and standard deviation.
 }
 \examples{
-draw_normal(mu = 0, sd = 1)
+draw_normal(mu = 0, sd = 1, color_density = "red")
 
 }

@@ -1,7 +1,7 @@
 #' Cut text file into chunks with specified number of chapters
 #'
 #' This function reads a text file and splits it into chunks where each chunk contains a specified number of chapters.
-#' Chapters are identified by markers like "第*章".
+#' Chapters are identified by markers like "<e7><ac><ac>*<e7><ab><a0>".
 #'
 #' @param file The path to the text file to be cut.
 #' @param marker The regular expression pattern to identify chapters in the text file.
@@ -11,14 +11,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' cut_txt(file = "your_file.txt", marker = "第.*章", num_chapters = 25)
+#' cut_txt(file = "your_file.txt", marker = "<e7><ac><ac>.*<e7><ab><a0>", num_chapters = 25)
 #' }
 #'
 #' @importFrom pacman p_load
 #' @importFrom stringr str_pad
 #' @importFrom dplyr mutate_all
 #' @importFrom tools file_path_sans_ext
-cut_txt<-function(file,marker="第.*章",num_chapters=25){
+cut_txt<-function(file,marker="<e7><ac><ac>.*<e7><ab><a0>",num_chapters=25){
   #pacman::p_load(stringr,dplyr)
   name = tools::file_path_sans_ext(file)
   lines <- readLines(file,encoding = "gbk")

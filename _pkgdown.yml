@@ -35,11 +35,15 @@ reference:
 - title: Data Summary
   desc:
   contents:
-  - draw_normal
-  - zround
   - meanSD
-  - zrange
   - count_percent
+  - zround
+  - zrange
+  - zpvalue
+  - draw_normal
+  - compare_categorical
+  - compare_numerical
+  - combine_table
 - title: Rmd functions
   desc:
   contents:

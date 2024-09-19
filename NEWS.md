@@ -1,5 +1,2 @@
-# toolkit
-
-## toolkit 0.0.1
-
-This is the first version of the **toolkit** package to be released open-source on GitHub. 
+# toolkit 1.0.0 (2024-08-19)
+- add functions `compare_categorical`, `compare_numerical`, `combine_table`, `zpvalue`

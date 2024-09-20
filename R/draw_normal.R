@@ -25,7 +25,7 @@ draw_normal <- function(mu = 0, sd = 1, color_density = "blue") {
     labs(title = paste0('N(', mu, ', ', sd, ')', ' PDF'),
          x = "Values",
          y = "Probability Density") +
-    theme_minimal()
+    theme_bw()
 
   return(p)
 }

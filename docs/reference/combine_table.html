@@ -115,6 +115,19 @@
     <p>This function takes two tables, converts them to data frames, and then combines their values in a "count (percentage)" format. If the <code>percent</code> argument is <code>TRUE</code>, the values in <code>tab2</code> are treated as percentages; otherwise, they are combined as raw values.</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">tab1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/marginSums.html" class="external-link">margin.table</a></span><span class="op">(</span><span class="va">Titanic</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">tab2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">tab1</span>, margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span>, <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">combine_table</span><span class="op">(</span><span class="va">tab1</span>,<span class="va">tab2</span>,<span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                No          Yes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1st  122 (37.54%) 203 (62.46%)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2nd   167 (58.6%)  118 (41.4%)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3rd  528 (74.79%) 178 (25.21%)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Crew 673 (76.05%) 212 (23.95%)</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

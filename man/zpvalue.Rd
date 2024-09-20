@@ -17,7 +17,7 @@ This function formats a p-value for display, rounding it to three decimal places
 }
 \examples{
 # Example usage of the function:
-pvalue_fun(0.005)
-pvalue_fun(0.0005)
+zpvalue(0.005)
+zpvalue(0.0005)
 
 }

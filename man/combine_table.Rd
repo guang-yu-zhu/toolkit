@@ -22,3 +22,9 @@ This function combines two tables: one with raw counts and another with percenta
 \details{
 This function takes two tables, converts them to data frames, and then combines their values in a "count (percentage)" format. If the \code{percent} argument is \code{TRUE}, the values in \code{tab2} are treated as percentages; otherwise, they are combined as raw values.
 }
+\examples{
+tab1<-margin.table(Titanic,c(1,4))
+tab2 <- round(prop.table(tab1, margin = 1) * 100, 2)
+combine_table(tab1,tab2,)
+
+}

@@ -9,6 +9,8 @@
 #'
 #' @return A LaTeX table with alternating row colors.
 #'
+#' @examples
+#' print_table_stripe(mtcars[1:5, 1:3])
 #'
 #' @importFrom kableExtra kbl kable_styling row_spec
 #' @export

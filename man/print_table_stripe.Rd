@@ -21,3 +21,7 @@ A LaTeX table with alternating row colors.
 \description{
 This function prints a LaTeX table using the kableExtra package with alternating row colors.
 }
+\examples{
+print_table_stripe(mtcars[1:5, 1:3])
+
+}

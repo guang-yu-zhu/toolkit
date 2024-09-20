@@ -8,8 +8,8 @@
 #'
 #' @examples
 #' # Example usage of the function:
-#' pvalue_fun(0.005)
-#' pvalue_fun(0.0005)
+#' zpvalue(0.005)
+#' zpvalue(0.0005)
 #'
 #' @export
 zpvalue <- function(x) {

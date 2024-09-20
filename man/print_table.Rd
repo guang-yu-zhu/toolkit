@@ -42,7 +42,6 @@ A styled table in HTML or LaTeX format, depending on the document type.
 This function prints a styled table in either HTML or LaTeX format, depending on the output document type.
 }
 \examples{
-df <- mtcars[1:10, 1:3]
-print_table(df, num_col = 2, rowname = 'car')
+print_table(mtcars[1:10, 1:3], num_col = 2, rowname = 'car')
 
 }

@@ -2,10 +2,32 @@
 % Please edit documentation in R/cleanFolder.R
 \name{cleanFolder}
 \alias{cleanFolder}
-\title{Clean folder}
+\title{Clean Folder After Compiling LaTeX Files}
 \usage{
-cleanFolder()
+cleanFolder(folder = getwd(), verbose = FALSE)
+}
+\arguments{
+\item{folder}{The directory to clean. If not specified, it defaults to the current working directory (\code{getwd()}).}
+
+\item{verbose}{Logical; if \code{TRUE}, prints the names of files that are deleted. Default is \code{FALSE}.}
+}
+\value{
+The function returns \code{TRUE} if the files were successfully removed, and \code{FALSE} otherwise.
 }
 \description{
-Clean folder after compiling latex
+This function deletes auxiliary files generated after compiling LaTeX in the current working directory.
+Common auxiliary file extensions such as \code{.log}, \code{.aux}, \code{.out}, etc., are removed.
+}
+\details{
+The function automatically removes common temporary files generated during the LaTeX compilation process,
+including \code{.log}, \code{.aux}, \code{.out}, \code{.bbl}, \code{.toc}, \code{.bak}, and others. It does not prompt the user and will
+clean the current directory without confirmation.
+}
+\examples{
+# Clean the current working directory
+cleanFolder()
+
+# Clean a specific directory
+cleanFolder("/path/to/latex/files", verbose = TRUE)
+
 }

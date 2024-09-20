@@ -61,7 +61,7 @@ plot_coef <- function(coefficients, remove_intercept = FALSE, order_coef = TRUE,
     ggplot2::labs(title = title,
          x = "Variables",
          y = "Coefficient") +
-    ggplot2::theme_minimal()
+    ggplot2::theme_bw()
 
   return(g)
 }

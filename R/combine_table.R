@@ -9,19 +9,23 @@
 #' @return A data frame with the combined counts and percentages (or values).
 #'
 #' @details This function takes two tables, converts them to data frames, and then combines their values in a "count (percentage)" format. If the `percent` argument is `TRUE`, the values in `tab2` are treated as percentages; otherwise, they are combined as raw values.
+#' @examples
+#' tab1<-margin.table(Titanic,c(1,4))
+#' tab2 <- round(prop.table(tab1, margin = 1) * 100, 2)
+#' combine_table(tab1,tab2,)
 #'
-#' @importFrom dplyr %>% 
+#' @importFrom dplyr %>%
 #'
 #' @export
 combine_table <- function(tab1, tab2, percent = TRUE) {
-  
+
   # Convert tables to data frames if they are not already
   tab1 <- as.data.frame(unclass(tab1))
   tab2 <- as.data.frame(unclass(tab2))
-  
+
   # Initialize a new table for combined results
   combined_table <- tab1
-  
+
   # Combine counts and percentages/values
   for (i in seq_len(ncol(tab1))) {
     if (percent) {
@@ -30,6 +34,6 @@ combine_table <- function(tab1, tab2, percent = TRUE) {
       combined_table[, i] <- paste0(tab1[, i], ' (', tab2[, i], ')')
     }
   }
-  
+
   combined_table
 }

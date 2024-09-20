@@ -6,9 +6,10 @@
 \usage{
 print_table(
   df,
+  num_col = 1,
+  rowname = NA,
   caption = "",
   digits = 2,
-  print_rownames = FALSE,
   fontsize = 9,
   big.mark = ",",
   na_str = "",
@@ -18,15 +19,17 @@ print_table(
 \arguments{
 \item{df}{The data frame to be formatted as a table.}
 
+\item{num_col}{An integer specifying the number of columns to split the output table into (default: 1).}
+
+\item{rowname}{A character string specifying the column name for the row names; if not provided, the row names will not be printed (default: NA).}
+
 \item{caption}{A character string specifying the caption for the table (default: '').}
 
 \item{digits}{An integer indicating the number of digits to display (default: 2).}
 
-\item{print_rownames}{Logical value indicating whether to print row names (default: FALSE).}
-
 \item{fontsize}{Font size for the table (default: 9).}
 
-\item{big.mark}{A character string used as the big mark separator for numbers (default: ',').}
+\item{big.mark}{A character string used as the thousands separator for numbers (default: ',').}
 
 \item{na_str}{A string used to replace missing values (default: '').}
 
@@ -39,6 +42,7 @@ A styled table in HTML or LaTeX format, depending on the document type.
 This function prints a styled table in either HTML or LaTeX format, depending on the output document type.
 }
 \examples{
-head(mtcars) \%>\% print_table()
+df <- mtcars[1:10, 1:3]
+print_table(df, num_col = 2, rowname = 'car')
 
 }

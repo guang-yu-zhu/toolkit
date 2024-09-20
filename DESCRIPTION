@@ -1,6 +1,6 @@
 Package: toolkit
 Title: My tool function for R and Rmarkdown
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person("Guangyu", "Zhu", , "guangyuzhu@uri.edu", role = c("aut", "cre"))
 Description: What the package does (one paragraph).

@@ -35,14 +35,20 @@ reference:
 - title: Data Summary
   desc:
   contents:
+  - summarize_plots
+  - summarize_table
+  - plot_coef
+  - draw_normal
+  - compare_categorical
+  - compare_numerical
+- title: Help Functions
+  desc:
+  contents:
   - meanSD
   - count_percent
   - zround
   - zrange
   - zpvalue
-  - draw_normal
-  - compare_categorical
-  - compare_numerical
   - combine_table
 - title: Rmd functions
   desc:

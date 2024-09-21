@@ -3,7 +3,7 @@ Title: My tool function for R and Rmarkdown
 Version: 1.0.1
 Authors@R: 
     person("Guangyu", "Zhu", , "guangyuzhu@uri.edu", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
@@ -12,7 +12,7 @@ RoxygenNote: 7.3.2
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Imports:  clipr,  dplyr,  flextable,  ggplot2,  kableExtra,  knitr,  magrittr,  pacman,  readxl,  stringr,  tibble, formattable, readr
+Imports:  clipr,  dplyr,  flextable,  ggplot2,  kableExtra,  knitr,  magrittr,  pacman,  readxl,  stringr,  tibble, formattable, readr, patchwork
 URL: http://guang-yu-zhu.github.io/toolkit
 BugReports: https://github.com/guang-yu-zhu/toolkit/issues
 

@@ -5,7 +5,7 @@ _development/
 .RData
 Meta
 .RDataTmp
-try.R
+docs/
 
 .Rdata
 .httr-oauth

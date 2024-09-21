@@ -20,10 +20,3 @@ Invisible NULL. This function is called for its side effects.
 This function sources all R scripts from a specified directory. It recursively searches for files
 with extensions \code{.R}, \code{.r}, \code{.S}, \code{.s}, \code{.Q}, and \code{.q} and sources them into the current environment.
 }
-\examples{
-\dontrun{
-  # Source all R scripts in the 'R_scripts' directory
-  sourceDir("path/to/R_scripts")
-}
-
-}

@@ -11,6 +11,7 @@
 #' rmd_hook_set()
 #'
 #' @importFrom knitr knit_hooks
+#' @importFrom graphics par
 #' @export
 rmd_hook_set<-function(){
   # inline hook ####
@@ -34,7 +35,7 @@ rmd_hook_set<-function(){
   knitr::knit_hooks$set(
     par=function(before, options, envir){
       if (before &&options$fig.show!='none')
-        par(mar=c(3,3,1,1),cex.lab=1.2,cex.axis=1.2,cex.main=1.2,mgp=c(1.5,0.5,0),
+        graphics::par(mar=c(3,3,1,1),cex.lab=1.2,cex.axis=1.2,cex.main=1.2,mgp=c(1.5,0.5,0),
             tcl=-.3,pch=16, bg=bg,fg='black',
             col.axis='black',col.lab='black',col.main='black',
             col.sub='black')

@@ -7,13 +7,11 @@
 #'
 #' @return None
 #'
-#' @examples
-#' summary(glm(case ~ spontaneous+induced,data = infert,family = binomial()))%>%clip()
-#'
 #' @importFrom magrittr %>%
 #' @importFrom clipr write_clip
 #' @importFrom readr read_file
 #' @importFrom utils capture.output
+#'
 #' @export
 clip <- function(obj, file = "output.txt") {
   obj %>%

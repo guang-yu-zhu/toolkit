@@ -24,6 +24,7 @@
 #' summarize_table(mtcars)
 #'
 #' @importFrom dplyr tibble bind_rows
+#' @importFrom stats median sd
 #' @export
 summarize_table <- function(df) {
   # Create a list to store summaries
@@ -39,8 +40,8 @@ summarize_table <- function(df) {
       summary_list[[col_name]] <- dplyr::tibble(
         Type = "Numeric",
         Mean = mean(col_data, na.rm = TRUE),
-        Median = median(col_data, na.rm = TRUE),
-        SD = sd(col_data, na.rm = TRUE),
+        Median = stats::median(col_data, na.rm = TRUE),
+        SD = stats::sd(col_data, na.rm = TRUE),
         Min = min(col_data, na.rm = TRUE),
         Max = max(col_data, na.rm = TRUE),
         NA_Count = sum(is.na(col_data))

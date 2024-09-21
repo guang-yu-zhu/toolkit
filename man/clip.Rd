@@ -17,7 +17,3 @@ None
 \description{
 This function captures the output of an R object and writes it to a file, then copies the contents of the file to the clipboard.
 }
-\examples{
-summary(glm(case ~ spontaneous+induced,data = infert,family = binomial()))\%>\%clip()
-
-}

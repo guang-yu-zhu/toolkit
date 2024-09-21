@@ -16,23 +16,24 @@
 #' compare_categorical(mtcars,'cyl','gear',varname = 'gear')
 #'
 #' @importFrom dplyr %>%
-#' @importFrom stats xtabs fisher.test
+#' @importFrom stats xtabs fisher.test addmargins
 #'
 #' @export
 #' @md
 compare_categorical <- function(dat, var1, var2, varname = '', colname = 'Variables') {
   # Create contingency table with margins
-  tab1 <- dat %>% xtabs(formula = paste0('~', var2, '+', var1)) %>%
-    addmargins(margin = 2)
+  tab1 <- dat %>%
+    stats::xtabs(formula = paste0('~', var2, '+', var1))%>%
+    stats::addmargins(margin = 2)
 
   # Calculate proportions
   tab2 <- round(prop.table(tab1, margin = 2) * 100, 1)
 
   # Perform Fisher's exact test
-  test1 <- tab1 %>% fisher.test(simulate.p.value = TRUE)
+  test1 <- tab1 %>% stats::fisher.test(simulate.p.value = TRUE)
 
   # Combine the tables
-  table <- combine_table(tab1, tab2)
+  table <- toolkit::combine_table(tab1, tab2)
   rownames(table) <- paste0('     ', rownames(table))
   colnames(table)[ncol(table)]='Total'
   #colnames(table) <- c(levels(dat[[var1]]), 'Total')
@@ -40,10 +41,10 @@ compare_categorical <- function(dat, var1, var2, varname = '', colname = 'Variab
   # Format the final table
   table1 <- NA %>% rbind(table) %>% cbind('p-value' = NA)
   rownames(table1)[1] <- paste0(varname, ', n (%)')
-  table1[1, ncol(table1)] <- zpvalue(test1$p.value)
+  table1[1, ncol(table1)] <- toolkit::zpvalue(test1$p.value)
 
   # Convert rownames to column
-  table1 <- table1 %>% rownames_to_column(var=colname)
+  table1 <- table1 %>% tibble::rownames_to_column(var=colname)
   table1
 }
 

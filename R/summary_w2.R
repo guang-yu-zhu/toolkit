@@ -7,13 +7,13 @@
 #' @param by_person Logical indicating whether to summarize the data by person (default: FALSE).
 #'
 #' @return A flextable object representing the summary table of W2 data for the specified year.
-#' @export
 #'
 #' @import readxl
 #' @import dplyr
 #' @importFrom flextable flextable set_caption align colformat_num colformat_double merge_v hline
 #' @importFrom magrittr %>%
 #'
+#' @export
 summary_w2 <- function(year, by_person = FALSE) {
   # Construct the file path
   file_name <- paste0(year, '/', year, '-W2.xlsx')

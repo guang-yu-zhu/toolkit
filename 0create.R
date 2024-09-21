@@ -1,5 +1,6 @@
 file.edit('.gitignore')
-file.edit('.github/workflows/_pkgdown.yml')
+file.edit('.github/workflows/pkgdown.yaml')
+file.edit('.github/workflows/release.yml')
 file.edit('_pkgdown.yml')
 file.edit('NAMESPACE')
 file.edit('DESCRIPTION')
@@ -13,6 +14,18 @@ roxygenise(clean = TRUE)
 #build_reference()
 build_site()
 preview_site()
+
+# git commit and push  ------
+# commit all changes
+system('git add .')
+system('git commit -m "version 1.0.0"')
+# Create the tag
+system('git tag -a v1.0.0 -m "Release version 1.0.0"')
+# Push both the commit and the tag to the remote repository
+ststem('git push')
+ststem('git push origin v1.0.0')
+
+
 
 #  usethis -----
 library(usethis)

@@ -1,4 +1,4 @@
-name: R-CMD-check
+name: R-CMD-check and Release
 
 on:
   push:
@@ -8,13 +8,35 @@ on:
 jobs:
   R-CMD-check:
     runs-on: ubuntu-latest
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
+      # Step 1: Checkout the repository
       - uses: actions/checkout@v2
+
+      # Step 2: Set up R
       - name: Install R
         uses: r-lib/actions/setup-r@v2
+
+      # Step 3: Install dependencies listed in the DESCRIPTION file automatically
       - name: Install dependencies
-        run: |
-          Rscript -e 'install.packages("devtools")'
-          Rscript -e 'devtools::install_deps(dep = TRUE)'
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: devtools  # Ensure devtools is installed as an extra dependency
+
+      # Step 4: Run R CMD check
       - name: Run R CMD check
         run: R CMD check .
+
+      # Step 5: Create a GitHub release
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }}  # Use the tag that triggered the workflow
+          release_name: Release ${{ github.ref }}
+          body: |
+            Automatic release for version ${{ github.ref }}.
+          draft: false
+          prerelease: false

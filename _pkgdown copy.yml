@@ -20,7 +20,7 @@ repo:
 navbar:
   structure:
     left:  [home, reference, news]
-    right: [personal,github]
+    right: [personal, github]
   components:
     home:
       icon: fas fa-home fa-lg
@@ -32,31 +32,52 @@ navbar:
       icon: fa-user
       href: http://guangyuzhu.rbind.io
 reference:
-- title: Data Summary
-  desc:
-  contents:
-  - draw_normal
-  - zround
-  - meanSD
-  - zrange
-  - count_percent
-- title: Rmd functions
-  desc:
-  contents:
-  - rmd_hook_set
-  - rmd_opts_set
-  - set_ggplot_theme
-  - zkbl
-  - print_table
-  - print_table_stripe
-- title: Tool functions
-  desc:
-  contents:
-  - cut_txt
-  - cleanFolder
-  - clip
-  - sourceDir
-  - summary_w2
+  - title: Tool functions
+    desc:
+    contents:
+      - clip
+      - cut_txt
+      - sourceDir
+      - summary_w2
+  - title: Packagedown Related
+    desc:
+    contents:
+      - commit_and_tag
+      - fun_links
+  - title: Compiling files
+    desc:
+    contents:
+      - compile_texs
+      - compile_rnws
+      - compile_handouts
+      - cleanLatex
+  - title: Data Summary
+    desc:
+    contents:
+      - summarize_plots
+      - summarize_table
+      - plot_coef
+      - draw_normal
+      - compare_categorical
+      - compare_numerical
+  - title: Help Functions
+    desc:
+    contents:
+      - meanSD
+      - count_percent
+      - zround
+      - zrange
+      - zpvalue
+      - combine_table
+  - title: Rmd functions
+    desc:
+    contents:
+      - rmd_hook_set
+      - rmd_opts_set
+      - set_ggplot_theme
+      - zkbl
+      - print_table
+      - print_table_stripe
 footer:
   structure:
     left: developed_by

@@ -1,4 +1,4 @@
-#' Clean Folder After Compiling LaTeX Files
+#' Remove LaTeX Auxiliary Files
 #'
 #' This function deletes auxiliary files generated after compiling LaTeX in the current working directory.
 #' Common auxiliary file extensions such as `.log`, `.aux`, `.out`, etc., are removed.
@@ -14,14 +14,15 @@
 #' @return The function returns `TRUE` if the files were successfully removed, and `FALSE` otherwise.
 #'
 #' @examples
+#' \dontrun{
 #' # Clean the current working directory
-#' cleanFolder()
+#' cleanLatex()
 #'
 #' # Clean a specific directory
-#' cleanFolder("/path/to/latex/files", verbose = TRUE)
-#'
+#' cleanLatex("/path/to/latex/files", verbose = TRUE)
+#' }
 #' @export
-cleanFolder <- function(folder = getwd(), verbose = FALSE) {
+cleanLatex <- function(folder = getwd(), verbose = FALSE) {
   # Define the auxiliary file extensions to remove
   rules <- c('.log', '.vrb', '.nav', '.snm', '.toc', '-tikzDictionary',
              '.synctex.gz', '.aux', '.out', '.bbl', '.bak')

@@ -4,29 +4,38 @@
 \alias{compare_categorical}
 \title{Perform Cross-Tabulation and Fisher's Exact Test}
 \usage{
-compare_categorical(dat, var1, var2, varname = "", colname = "Variables")
+compare_categorical(
+  dat,
+  col_var,
+  row_var,
+  varname = "",
+  total = FALSE,
+  colname = "Variables"
+)
 }
 \arguments{
 \item{dat}{A data frame containing the variables.}
 
-\item{var1}{The grouping variable (factor or categorical) used to classify the data into two groups.}
+\item{col_var}{The grouping variable (categorical or factor) to classify the data into two or more groups.}
 
-\item{var2}{The categorical variable to compare against \code{var1}.}
+\item{row_var}{The categorical variable to compare against \code{col_var}.}
 
-\item{varname}{Optional. A character string to name the \code{var2} row in the output table (default is an empty string).}
+\item{varname}{Optional. A character string to label the \code{row_var} row in the output table (default is an empty string).}
+
+\item{total}{Logical; if TRUE, includes an overall total in the table.}
 
 \item{colname}{Optional. The name of the first column in the output table (default is 'Variables').}
 }
 \value{
-A data frame with cross-tabulation results, including counts, proportions, and the p-value from Fisher's exact test.
+A data frame with the cross-tabulation results, including counts, proportions, and the p-value from Fisher's exact test.
 }
 \description{
-This function performs a cross-tabulation and Fisher's exact test on two categorical variables, returning a formatted table with proportions and p-values.
+This function performs a cross-tabulation between two categorical variables and conducts Fisher's exact test, returning a formatted table with counts, proportions, and p-values.
 }
 \details{
-The function creates a contingency table for \code{var1} and \code{var2} using \code{xtabs}, adds row margins, calculates proportions, and performs Fisher's exact test. The output is a formatted table with the calculated proportions and p-value.
+This function creates a contingency table for \code{col_var} and \code{row_var} using \code{xtabs}, adds row margins if requested, computes proportions, and performs Fisher's exact test to assess the association between the two variables. The output is a formatted table with counts, proportions, and the test's p-value.
 }
 \examples{
-compare_categorical(mtcars,'cyl','gear',varname = 'gear')
+compare_categorical(mtcars, 'cyl', 'gear', varname = 'Gear')
 
 }

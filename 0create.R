@@ -5,6 +5,7 @@ file.edit('_pkgdown.yml')
 file.edit('NAMESPACE')
 file.edit('DESCRIPTION')
 file.edit('README.md')
+file.edit('NEWS.md')
 #-----
 # pkgdown::build_favicons() # run once when you have your man/figures/logo.png
 library(pkgdown)
@@ -18,12 +19,12 @@ preview_site()
 # git commit and push  ------
 # commit all changes
 system('git add .')
-system('git commit -m "version 1.0.0"')
+system('git commit -m "version 1.0.2"')
 # Create the tag
-system('git tag -a v1.0.0 -m "Release version 1.0.0"')
+system('git tag -a v1.0.2 -m "Release version 1.0.2"')
 # Push both the commit and the tag to the remote repository
 ststem('git push')
-ststem('git push origin v1.0.0')
+ststem('git push origin v1.0.2')
 
 
 

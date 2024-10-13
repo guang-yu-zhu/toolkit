@@ -1,6 +1,6 @@
 Package: toolkit
 Title: My Tool Function for R and Rmarkdown
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: person("Guangyu", "Zhu", email = "guangyuzhu@uri.edu", role = c("aut", "cre"))
 Description: A collection of functions for enhancing R and Rmarkdown workflows.
 License: MIT + file LICENSE
@@ -18,6 +18,7 @@ Imports:
     flextable,
     ggplot2,
     kableExtra,
+    tinytex,
     knitr,
     magrittr,
     pacman,

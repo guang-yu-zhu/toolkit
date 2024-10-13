@@ -37,7 +37,7 @@ jobs:
 
       - name: Install additional dependencies
         run: |
-          install.packages(c("pkgdown", "devtools", "remotes", "pak"))
+          install.packages(c("pkgdown", "devtools", "remotes"))
            remotes::install_github("guang-yu-zhu/zpreferably")
         shell: Rscript {0}
 

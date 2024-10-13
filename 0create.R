@@ -18,7 +18,8 @@ build_site()
 preview_site()
 
 # git commit and push  ------
-toolkit::commit_and_tag("1.0.3")
+usethis::use_version("patch")  # Bump the version in DESCRIPTION; could be "major", "minor", or "patch"
+toolkit::commit_and_tag("1.0.4")
 #  usethis -----
 library(usethis)
 use_pipe()

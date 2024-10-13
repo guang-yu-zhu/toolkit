@@ -9,16 +9,20 @@ output:
 library(toolkit)
 pkgname='toolkit'
 ```
-  
-# toolkit 1.0.0 (2024-09-19)
-- Add functions `r fun_links(c("compare_categorical", "compare_numerical", "combine_table", "zpvalue"), pkgname)`
+
+# toolkit 1.0.3 (2024-10-13)
+- Add function `r fun_links(c("commit_and_tag","fun_links"),pkgname)`
+
+# toolkit 1.0.2 (2024-10-13)
+- Add functions `r fun_links(c("compile_rnws", "compile_texs", "compile_handouts"),pkgname)`
+
 
 # toolkit 1.0.1 (2024-09-20)
 - Add functions `r fun_links(c("summarize_plots", "summarize_table", "plot_coef"), pkgname)`
 - Revise function `r fun_links("print_table",pkgname)` such that it can break a long table into multiple columns.
 
-# toolkit 1.0.2 (2024-10-13)
-- Add functions `r fun_links(c("compile_rnws", "compile_texs", "compile_handouts"),pkgname)`
 
-# toolkit 1.0.3 (2024-10-13)
-- Add function `r fun_links(c("commit_and_tag","fun_links"),pkgname)`
+
+# toolkit 1.0.0 (2024-09-19)
+- Add functions `r fun_links(c("compare_categorical", "compare_numerical", "combine_table", "zpvalue"), pkgname)`
+

@@ -39,6 +39,11 @@ reference:
       - cut_txt
       - sourceDir
       - summary_w2
+  - title: Packagedown Related
+    desc:
+    contents:
+      - commit_and_tag
+      - fun_links
   - title: Compiling files
     desc:
     contents:

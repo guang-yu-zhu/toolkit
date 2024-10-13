@@ -5,29 +5,20 @@ file.edit('_pkgdown.yml')
 file.edit('NAMESPACE')
 file.edit('DESCRIPTION')
 file.edit('README.md')
-file.edit('NEWS.md')
+file.edit('NEWS.Rmd')
 #-----
 # pkgdown::build_favicons() # run once when you have your man/figures/logo.png
 library(pkgdown)
 library(roxygen2)
 roxygenise(clean = TRUE)
+rmarkdown::render("NEWS.Rmd", output_file = "NEWS.md")
 #build_home()
 #build_reference()
 build_site()
 preview_site()
 
 # git commit and push  ------
-# commit all changes
-system('git add .')
-system('git commit -m "version 1.0.2"')
-# Create the tag
-system('git tag -a v1.0.2 -m "Release version 1.0.2"')
-# Push both the commit and the tag to the remote repository
-ststem('git push')
-ststem('git push origin v1.0.2')
-
-
-
+toolkit::commit_and_tag("1.0.3")
 #  usethis -----
 library(usethis)
 use_pipe()

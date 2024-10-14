@@ -2,9 +2,9 @@ name: Automatic Release
 
 on:
   push:
-    branches: [main, master]
-    #tags:
-    #  - 'v*.*.*'  # Runs only on version tags
+    #branches: [main, master]
+    tags:
+      - 'v*.*.*'  # Runs only on version tags
 
 jobs:
   release:

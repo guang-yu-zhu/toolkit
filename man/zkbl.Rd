@@ -2,7 +2,7 @@
 % Please edit documentation in R/zkbl.R
 \name{zkbl}
 \alias{zkbl}
-\title{Format and style a table for LaTeX output}
+\title{Format and Style a Table for LaTeX Output}
 \usage{
 zkbl(
   table,
@@ -13,21 +13,24 @@ zkbl(
 )
 }
 \arguments{
-\item{table}{The data table to be formatted.}
+\item{table}{A data frame or matrix to be formatted as a table.}
 
 \item{booktabs}{Logical indicating whether to use the booktabs formatting (default: TRUE).}
 
 \item{escape}{Logical indicating whether to escape special characters in the table (default: TRUE).}
 
+\item{format.args}{A list of additional formatting arguments to customize number representation.}
+
 \item{...}{Additional arguments to be passed to the kbl function.}
 }
 \value{
-A LaTeX-formatted table with specified styling.
+A LaTeX-formatted table with the specified styling.
 }
 \description{
-This function formats and styles a table for LaTeX output using the kableExtra package.
+This function formats and styles a table for LaTeX output using the
+kableExtra package.
 }
 \examples{
-zkbl(mtcars[1:5,])
+zkbl(mtcars[1:5, ])
 
 }

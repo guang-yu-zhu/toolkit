@@ -10,9 +10,6 @@ jobs:
   release:
     runs-on: ubuntu-latest
 
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
     steps:
       # Step 1: Checkout the repository
       - uses: actions/checkout@v2
@@ -38,3 +35,4 @@ jobs:
             Automatic release for version ${{ github.ref }}.
           draft: false
           prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use the built-in GitHub token

@@ -10,6 +10,10 @@ library(toolkit)
 pkgname='toolkit'
 ```
 
+# toolkit 1.0.4 (2024-10-13)
+- Add function `r fun_links(c("git_commit_push","git_tag_push"),pkgname)`
+
+
 # toolkit 1.0.3 (2024-10-13)
 - Add function `r fun_links(c("commit_and_tag","fun_links"),pkgname)`
 

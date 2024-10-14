@@ -34,9 +34,11 @@ jobs:
             Automatic release for version ${{ github.ref }}.  # Release notes
           draft: false  # Set to true if you want the release to be a draft
           prerelease: false  # Set to true for pre-releases
-          token: ${{ secrets.GITHUB_TOKEN }}  # Use the built-in GitHub token
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the built-in GitHub token
 
-      # Step 5:
+      # Step 5: Debug Information
       - name: Debug Information
         run: |
           echo "GitHub Ref: ${{ github.ref }}"
+          echo "Release Name: Release ${{ github.ref }}"

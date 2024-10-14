@@ -1,10 +1,10 @@
-name: Release
+name: Automatic Release
 
 on:
   push:
     branches: [main, master]  # Runs on pushes to these branches
-#    tags:
-#      - 'v*.*.*'  # Runs on version tags
+    tags:
+      - 'v*.*.*'  # Runs on version tags
 
 jobs:
   release:

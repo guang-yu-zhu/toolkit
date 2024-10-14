@@ -42,7 +42,8 @@ reference:
   - title: Packagedown Related
     desc:
     contents:
-      - commit_and_tag
+      - git_commit_push
+      - git_tag_push
       - fun_links
   - title: Compiling files
     desc:

@@ -1,4 +1,4 @@
-#' Tag Version in Git
+#' Tag Version in Git and Push
 #'
 #' This function creates a tag for the specified version and pushes the tag to the remote repository.
 #'
@@ -9,11 +9,11 @@
 #'
 #' @examples
 #' \dontrun{
-#'   git_tag("1.0.2")
+#'   git_tag_push("1.0.2")
 #' }
 #'
 #' @export
-git_tag <- function(version = "1.0.0", message = paste("Release version", version)) {
+git_tag_push <- function(version = "1.0.0", message = paste("Release version", version)) {
   # Create the tag command
   tag_command <- paste('git tag -a', shQuote(paste("v", version, sep = "")), '-m', shQuote(message))
 

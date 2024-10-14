@@ -1,3 +1,9 @@
+# toolkit 1.0.4 (2024-10-13)
+
+-   Add function
+    [git_commit_push](https://guang-yu-zhu.github.io/toolkit/reference/git_commit_push.html),
+    [git_tag_push](https://guang-yu-zhu.github.io/toolkit/reference/git_tag_push.html)
+
 # toolkit 1.0.3 (2024-10-13)
 
 -   Add function

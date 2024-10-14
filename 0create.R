@@ -12,13 +12,13 @@ file.edit('NEWS.Rmd')
 library(pkgdown)
 library(roxygen2)
 roxygenise(clean = TRUE)
-rmarkdown::render("NEWS.Rmd", output_file = "NEWS.md")
 #build_home()
 #build_reference()
 build_site()
 preview_site()
 
-# git commit and push  ------
+# new version  ------
+rmarkdown::render("NEWS.Rmd", output_file = "NEWS.md")
 ## Ensure Your Working Directory is Up-to-Date
 system("git add .")
 system("git commit -m 'Version 1.0.4'")

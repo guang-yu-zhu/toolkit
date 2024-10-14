@@ -1,4 +1,4 @@
-# toolkit 1.0.4 (2024-10-13)
+# toolkit 1.1.0 (2024-10-13)
 
 -   Add function
     [git_commit_push](https://guang-yu-zhu.github.io/toolkit/reference/git_commit_push.html),

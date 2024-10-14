@@ -21,11 +21,11 @@ preview_site()
 rmarkdown::render("NEWS.Rmd", output_file = "NEWS.md")
 ## Ensure Your Working Directory is Up-to-Date
 system("git add .")
-system("git commit -m 'Version 1.0.5'")
+system("git commit -m 'Version 1.1.0'")
 system("git push")  # Pushes the latest changes to GitHub"
 ## Create Tab and push
-system("git tag -a v1.0.4 -m 'Release version 1.0.4'")
-system("git push origin v1.0.4.1")
+system("git tag -a v1.1.0 -m 'Release version 1.1.0'")
+system("git push origin v1.1.0")
 #  usethis -----
 library(usethis)
 use_pipe()

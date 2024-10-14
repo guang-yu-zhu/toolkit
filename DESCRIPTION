@@ -1,6 +1,6 @@
 Package: toolkit
 Title: My Tool Function for R and Rmarkdown
-Version: 1.0.5
+Version: 1.1.0
 Authors@R: person("Guangyu", "Zhu", email = "guangyuzhu@uri.edu", role = c("aut", "cre"))
 Author: Guangyu Zhu <guangyuzhu@uri.edu>
 Maintainer: Guangyu Zhu <guangyuzhu@uri.edu>

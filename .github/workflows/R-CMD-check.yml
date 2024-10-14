@@ -1,4 +1,4 @@
-name: R-CMD-check and Release
+name: R-CMD-chec
 
 on:
   push:

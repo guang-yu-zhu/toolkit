@@ -1,6 +1,7 @@
 file.edit('.gitignore')
 file.edit('.github/workflows/pkgdown.yaml')
 file.edit('.github/workflows/release.yml')
+file.edit('.github/workflows/R-CMD-check.yml')
 file.edit('_pkgdown.yml')
 file.edit('NAMESPACE')
 file.edit('DESCRIPTION')

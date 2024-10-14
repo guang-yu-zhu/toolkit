@@ -1,0 +1,1106 @@
+\nonstopmode{}
+\documentclass[a4paper]{book}
+\usepackage[times,inconsolata,hyper]{Rd}
+\usepackage{makeidx}
+\makeatletter\@ifl@t@r\fmtversion{2018/04/01}{}{\usepackage[utf8]{inputenc}}\makeatother
+% \usepackage{graphicx} % @USE GRAPHICX@
+\makeindex{}
+\begin{document}
+\chapter*{}
+\begin{center}
+{\textbf{\huge Package `toolkit'}}
+\par\bigskip{\large \today}
+\end{center}
+\ifthenelse{\boolean{Rd@use@hyper}}{\hypersetup{pdftitle = {toolkit: My Tool Function for R and Rmarkdown}}}{}
+\ifthenelse{\boolean{Rd@use@hyper}}{\hypersetup{pdfauthor = {Guangyu Zhu}}}{}
+\begin{description}
+\raggedright{}
+\item[Title]\AsIs{My Tool Function for R and Rmarkdown}
+\item[Version]\AsIs{1.0.4}
+\item[Author]\AsIs{Guangyu Zhu }\email{guangyuzhu@uri.edu}\AsIs{}
+\item[Maintainer]\AsIs{Guangyu Zhu }\email{guangyuzhu@uri.edu}\AsIs{}
+\item[Description]\AsIs{A collection of functions for enhancing R and Rmarkdown workflows.}
+\item[License]\AsIs{MIT + file LICENSE}
+\item[Encoding]\AsIs{UTF-8}
+\item[Language]\AsIs{es}
+\item[Roxygen]\AsIs{list(markdown = TRUE)}
+\item[RoxygenNote]\AsIs{7.3.2}
+\item[Suggests]\AsIs{testthat (>= 3.0.0)}
+\item[Config/testthat/edition]\AsIs{3}
+\item[Imports]\AsIs{clipr, dplyr, tidyr, flextable, ggplot2, kableExtra, tinytex,
+knitr, magrittr, pacman, readxl, stringr, tibble, formattable,
+readr, patchwork}
+\item[URL]\AsIs{}\url{http://guang-yu-zhu.github.io/toolkit}\AsIs{}
+\item[BugReports]\AsIs{}\url{https://github.com/guang-yu-zhu/toolkit/issues}\AsIs{}
+\end{description}
+\Rdcontents{Contents}
+\HeaderA{\Rpercent{}>\Rpercent{}}{Pipe operator}{.Rpcent.>.Rpcent.}
+\keyword{internal}{\Rpercent{}>\Rpercent{}}
+%
+\begin{Description}
+See \code{magrittr::\LinkA{\Rpercent{}>\Rpercent{}}{.Rpcent.>.Rpcent.}} for details.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+lhs %>% rhs
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{lhs}] A value or the magrittr placeholder.
+
+\item[\code{rhs}] A function call using the magrittr semantics.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+The result of calling \code{rhs(lhs)}.
+\end{Value}
+\HeaderA{cleanLatex}{Remove LaTeX Auxiliary Files}{cleanLatex}
+%
+\begin{Description}
+This function deletes auxiliary files generated after compiling LaTeX in the current working directory.
+Common auxiliary file extensions such as \code{.log}, \code{.aux}, \code{.out}, etc., are removed.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+cleanLatex(folder = getwd(), verbose = FALSE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{folder}] The directory to clean. If not specified, it defaults to the current working directory (\code{getwd()}).
+
+\item[\code{verbose}] Logical; if \code{TRUE}, prints the names of files that are deleted. Default is \code{FALSE}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}
+The function automatically removes common temporary files generated during the LaTeX compilation process,
+including \code{.log}, \code{.aux}, \code{.out}, \code{.bbl}, \code{.toc}, \code{.bak}, and others. It does not prompt the user and will
+clean the current directory without confirmation.
+\end{Details}
+%
+\begin{Value}
+The function returns \code{TRUE} if the files were successfully removed, and \code{FALSE} otherwise.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+# Clean the current working directory
+cleanLatex()
+
+# Clean a specific directory
+cleanLatex("/path/to/latex/files", verbose = TRUE)
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{clip}{Capture output and copy to clipboard}{clip}
+%
+\begin{Description}
+This function captures the output of an R object and writes it to a file, then copies the contents of the file to the clipboard.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+clip(obj, file = "output.txt")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{obj}] The R object whose output is to be captured.
+
+\item[\code{file}] The file to which the output will be written (default: "output.txt").
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+None
+\end{Value}
+\HeaderA{combine\_table}{Combine Two Tables with different statistics.}{combine.Rul.table}
+%
+\begin{Description}
+This function combines two tables: one with raw counts and another with percentages (or other calculated values). It returns a formatted table that merges these values in a "count (percentage)" format.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+combine_table(tab1, tab2, percent = TRUE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tab1}] A data frame or matrix of the first statistics.
+
+\item[\code{tab2}] A data frame or matrix of the second statistics to be combined with \code{tab1}.
+
+\item[\code{percent}] Logical. If \code{TRUE}, formats \code{tab2} as percentages (i.e., appends a \AsIs{\texttt{\%}} sign). If \code{FALSE}, combines the counts and values without the percentage sign.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}
+This function takes two tables, converts them to data frames, and then combines their values in a "count (percentage)" format. If the \code{percent} argument is \code{TRUE}, the values in \code{tab2} are treated as percentages; otherwise, they are combined as raw values.
+\end{Details}
+%
+\begin{Value}
+A data frame with the combined counts and percentages (or values).
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+tab1<-margin.table(Titanic,c(1,4))
+tab2 <- round(prop.table(tab1, margin = 1) * 100, 2)
+combine_table(tab1,tab2,)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{commit\_and\_tag}{Commit Changes and Tag Version in Git}{commit.Rul.and.Rul.tag}
+%
+\begin{Description}
+This function commits all changes in the current directory to Git, creates a
+tag for the specified version, and pushes both the commit and the tag to the
+remote repository.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+commit_and_tag(version = "1.0.0", message = paste("Release version", version))
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{version}] A string specifying the version number for the tag. Default is "1.0.0".
+
+\item[\code{message}] A string specifying the commit message. Default is constructed as "Release version " followed by the version number.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+This function returns a message indicating whether the operations were successful or not.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+  commit_and_tag("1.0.2")
+
+## End(Not run)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{compare\_categorical}{Perform Cross-Tabulation and Fisher's Exact Test}{compare.Rul.categorical}
+%
+\begin{Description}
+This function performs a cross-tabulation between two categorical variables and conducts Fisher's exact test, returning a formatted table with counts, proportions, and p-values.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+compare_categorical(
+  dat,
+  col_var,
+  row_var,
+  varname = "",
+  total = FALSE,
+  colname = "Variables"
+)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{dat}] A data frame containing the variables.
+
+\item[\code{col\_var}] The grouping variable (categorical or factor) to classify the data into two or more groups.
+
+\item[\code{row\_var}] The categorical variable to compare against \code{col\_var}.
+
+\item[\code{varname}] Optional. A character string to label the \code{row\_var} row in the output table (default is an empty string).
+
+\item[\code{total}] Logical; if TRUE, includes an overall total in the table.
+
+\item[\code{colname}] Optional. The name of the first column in the output table (default is 'Variables').
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}
+This function creates a contingency table for \code{col\_var} and \code{row\_var} using \code{xtabs}, adds row margins if requested, computes proportions, and performs Fisher's exact test to assess the association between the two variables. The output is a formatted table with counts, proportions, and the test's p-value.
+\end{Details}
+%
+\begin{Value}
+A data frame with the cross-tabulation results, including counts, proportions, and the p-value from Fisher's exact test.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+compare_categorical(mtcars, 'cyl', 'gear', varname = 'Gear')
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{compare\_numerical}{Compute Mean and SD for Two Samples by Grouping Variable and Perform One-Way ANOVA}{compare.Rul.numerical}
+%
+\begin{Description}
+This function calculates the mean and standard deviation of a numerical variable for each level of a grouping variable and performs a one-way ANOVA test. The output is a formatted table that includes group-wise means, standard deviations, and a p-value.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+compare_numerical(
+  dat,
+  col_var,
+  row_var,
+  varname = "",
+  total = FALSE,
+  colname = "Variables"
+)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{dat}] A data frame containing the variables.
+
+\item[\code{col\_var}] The grouping variable (factor or categorical).
+
+\item[\code{row\_var}] The numerical variable for which mean and standard deviation are computed.
+
+\item[\code{varname}] A character string to label the row in the output table.
+
+\item[\code{total}] Logical; if TRUE, includes overall mean and SD.
+
+\item[\code{colname}] A character string for naming the output table column.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}
+The function computes the mean and standard deviation for \code{row\_var} within each group defined by \code{col\_var}, as well as overall. It performs a one-way ANOVA test to assess differences in means between groups. Results are presented in a table that includes the p-value.
+\end{Details}
+%
+\begin{Value}
+A data frame containing group-wise means and standard deviations of \code{row\_var} for each level of \code{col\_var}, along with the p-value from the one-way ANOVA test.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+compare_numerical(mtcars, 'cyl', 'mpg', varname = 'Miles per Gallon')
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{compile\_handouts}{Create and Compile Handouts from a List of TeX Files}{compile.Rul.handouts}
+%
+\begin{Description}
+This function processes a list of LaTeX files, creates corresponding handout files using a specified template, compiles them into PDFs, and removes the intermediate handout files after successful compilation.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+compile_handouts(file_list, template_path = "handout_tex/handout.tex")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file\_list}] A list of TeX filenames to be processed and compiled into handouts.
+
+\item[\code{template\_path}] A string specifying the path to the template LaTeX file (default is "handout\_tex/handout.tex").
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}
+The function reads a template LaTeX file and loops over a user-provided list of TeX files. For each TeX file, the function generates a corresponding handout file by replacing a placeholder in the template, compiles the file into a PDF using \code{tinytex::latexmk}, and then deletes the handout TeX file once the PDF is generated. If an error occurs during compilation, it skips to the next file.
+\end{Details}
+%
+\begin{Value}
+This function does not return a value but compiles PDFs and deletes the temporary handout TeX files after compilation.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+  tex_files <- list.files(pattern = "^Sta.*\\.tex")
+  compile_handouts(tex_files)
+
+## End(Not run)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{compile\_rnws}{Knit Files to PDF and Track Status}{compile.Rul.rnws}
+%
+\begin{Description}
+This function takes a list of Rnw or other LaTeX source files, attempts to knit each one to a PDF using the \code{knit2pdf} function, and tracks the success or failure of each attempt.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+compile_rnws(file_list = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file\_list}] A character vector containing the file paths to the Rnw or LaTeX source files. If NULL, the function will search for all \code{.Rnw} files in the current directory.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}
+The function iterates through the list of files, attempts to compile each one using \code{knit2pdf}, and stores the result (success or failure) in a data frame. If an error occurs during the knitting process, the function will skip that file and proceed to the next one.
+\end{Details}
+%
+\begin{Value}
+A data frame with two columns:
+\begin{description}
+
+\item[file] The name of the file that was processed.
+\item[success] Logical value indicating whether the knitting process was successful (\code{TRUE}) or encountered an error (\code{FALSE}).
+
+\end{description}
+
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+  file_list = list.files(pattern = "^Sta.*Rnw", ignore.case = TRUE)
+  knit_results <- compile_rnws(file_list)
+  print(knit_results)
+
+## End(Not run)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{compile\_texs}{Compile LaTeX Files}{compile.Rul.texs}
+%
+\begin{Description}
+This function compiles a list of LaTeX (.tex) files using \code{tinytex::latexmk}.
+If no file list is provided, it compiles all \code{.tex} files in the current working directory.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+compile_texs(file_list = NULL, clean = TRUE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file\_list}] A character vector of LaTeX file names to be compiled. If NULL, all \code{.tex} files in the working directory will be compiled.
+
+\item[\code{clean}] Logical indicating whether to clean auxiliary files after compilation (default is TRUE).
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A data frame containing the names of the files and their compilation success status.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+  compile_latex_files()
+  compile_latex_files(c("file1.tex", "file2.tex"))
+
+## End(Not run)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{count\_percent}{Calculate Counts and Percentages of Factor Levels}{count.Rul.percent}
+%
+\begin{Description}
+This function computes the counts and percentages for each level of a factor or categorical variable.
+It returns a character vector with each level's count and its percentage of the total, formatted to a specified number of decimal places.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+count_percent(x, digits = 2)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] A factor or a categorical variable.
+
+\item[\code{digits}] An integer indicating the number of decimal places to which the
+percentages will be rounded. Defaults to 2.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character vector where each element corresponds to a level of \code{x}.
+Each element is formatted as 'count (percentage\%)', where 'count' is the number of occurrences of the level
+and 'percentage' is the percentage of the total, rounded to \code{digits} decimal places.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+levels= LETTERS[1:3]
+factor1 <- levels%>%sample(size = 10, replace = TRUE)%>%factor()
+count_percent(factor1,1)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{cut\_txt}{Cut text file into chunks with specified number of chapters}{cut.Rul.txt}
+%
+\begin{Description}
+This function reads a text file and splits it into chunks where each chunk contains a specified number of chapters.
+Chapters are identified by markers like "第.*章".
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+cut_txt(file, marker = "第.*章", num_chapters = 25)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file}] The path to the text file to be cut.
+
+\item[\code{marker}] The regular expression pattern to identify chapters in the text file.
+
+\item[\code{num\_chapters}] The number of chapters to include in each chunk. Default is 25.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+NULL (The function writes output files.)
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+cut_txt(file = "your_file.txt", marker = "第.*章", num_chapters = 25)
+
+## End(Not run)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{draw\_normal}{Draw a normal distribution plot using ggplot2}{draw.Rul.normal}
+%
+\begin{Description}
+This function creates a ggplot2 plot representing the probability density function (PDF)
+of a normal distribution with a specified mean and standard deviation.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+draw_normal(mu = 0, sd = 1, color_density = "blue")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{mu}] Mean of the normal distribution. Default is 0.
+
+\item[\code{sd}] Standard deviation of the normal distribution. Default is 1.
+
+\item[\code{color\_density}] Color of the density line. Default is "blue".
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A ggplot2 object representing the normal distribution plot.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+draw_normal(mu = 0, sd = 1, color_density = "red")
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{fun\_links}{Generate Links to Function Documentation}{fun.Rul.links}
+%
+\begin{Description}
+This function takes a list of function names and generates a markdown
+formatted string with links to their documentation.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+fun_links(function_names, package_name = "toolkit")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{function\_names}] A character vector of function names.
+
+\item[\code{package\_name}] A string specifying the name of the package (default is "toolkit").
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A single concatenated string containing markdown links to the function documentation.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+function_list <- c("compile_rnws", "cleanFolder", "knit_rnws")
+result <- fun_links(function_list, package_name = "toolkit")
+cat(result)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{meanSD}{Calculate Mean and Standard Deviation, and Format the Output}{meanSD}
+%
+\begin{Description}
+This function computes the mean and standard deviation of a numeric vector
+and returns a formatted string with the mean and standard deviation, rounded to
+a specified number of decimal places.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+meanSD(x, digits = 2)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] A numeric vector for which the mean and standard deviation are to be computed.
+
+\item[\code{digits}] An integer indicating the number of decimal places to which the
+results will be rounded. Defaults to 2.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character string containing the mean and standard deviation of \code{x},
+formatted as 'mean (standard deviation)', each rounded to \code{digits} decimal places.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+meanSD(c(10.5, 5.3, 7.8), digits = 3)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{plot\_coef}{Plot Regression Coefficients}{plot.Rul.coef}
+%
+\begin{Description}
+This function creates a bar plot to visualize regression coefficients, with optional ordering, intercept removal, and coefficient selection.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+plot_coef(
+  coefficients,
+  remove_intercept = FALSE,
+  order_coef = TRUE,
+  select = NULL,
+  title = "Regression Coefficients"
+)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{coefficients}] A named vector or data frame of regression coefficients.
+
+\item[\code{remove\_intercept}] Logical. If TRUE, the intercept (first row) will be removed from the plot (default: FALSE).
+
+\item[\code{order\_coef}] Logical. If TRUE, the coefficients will be sorted by absolute value before plotting (default: TRUE).
+
+\item[\code{select}] A logical vector to specify which coefficients are selected. If provided, the plot will highlight selected coefficients (default: NULL).
+
+\item[\code{title}] A character string specifying the title of the plot (default: "Regression Coefficients").
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}
+This function takes regression coefficients and creates a horizontal bar plot. It allows for sorting by the absolute value of coefficients, removing the intercept, and highlighting selected coefficients if a logical vector is provided. The plot is useful for interpreting regression models.
+\end{Details}
+%
+\begin{Value}
+A ggplot object displaying the regression coefficients as a bar plot.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+# Example usage:
+fit<-lm(mpg~.,data=mtcars)
+coef(fit)%>%plot_coef(remove_intercept = TRUE)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{print\_table}{Print a Styled Table for HTML or LaTeX Output}{print.Rul.table}
+%
+\begin{Description}
+This function prints a styled table in either HTML or LaTeX format, depending on the output document type.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+print_table(
+  df,
+  num_col = 1,
+  rowname = NA,
+  caption = "",
+  digits = 2,
+  fontsize = 9,
+  big.mark = ",",
+  na_str = "",
+  ...
+)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{df}] The data frame to be formatted as a table.
+
+\item[\code{num\_col}] An integer specifying the number of columns to split the output table into (default: 1).
+
+\item[\code{rowname}] A character string specifying the column name for the row names; if not provided, the row names will not be printed (default: NA).
+
+\item[\code{caption}] A character string specifying the caption for the table (default: '').
+
+\item[\code{digits}] An integer indicating the number of digits to display (default: 2).
+
+\item[\code{fontsize}] Font size for the table (default: 9).
+
+\item[\code{big.mark}] A character string used as the thousands separator for numbers (default: ',').
+
+\item[\code{na\_str}] A string used to replace missing values (default: '').
+
+\item[\code{...}] Additional arguments to be passed to the formatting functions.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A styled table in HTML or LaTeX format, depending on the document type.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+print_table(mtcars[1:10, 1:3], num_col = 2, rowname = 'car')
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{print\_table\_stripe}{Print a styled LaTeX table with alternating row colors}{print.Rul.table.Rul.stripe}
+%
+\begin{Description}
+This function prints a LaTeX table using the kableExtra package with alternating row colors.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+print_table_stripe(df, fontsize = 7, stripe_color = "cyan!15", ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{df}] The data frame to be formatted as a table.
+
+\item[\code{fontsize}] Font size for the table (default: 7).
+
+\item[\code{stripe\_color}] Color for the alternating row stripes (default: "cyan!15").
+
+\item[\code{...}] Additional arguments to be passed to the kbl function.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A LaTeX table with alternating row colors.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+print_table_stripe(mtcars[1:5, 1:3])
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{rmd\_hook\_set}{Set custom knit hooks for R Markdown}{rmd.Rul.hook.Rul.set}
+%
+\begin{Description}
+This function sets custom knit hooks for R Markdown documents to customize behavior during knitting.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+rmd_hook_set()
+\end{verbatim}
+\end{Usage}
+%
+\begin{Details}
+The function sets inline knit hook to format numeric values and par hook to customize plotting parameters.
+\end{Details}
+%
+\begin{Value}
+None
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+rmd_hook_set()
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{rmd\_opts\_set}{Set default options for code chunks in R Markdown}{rmd.Rul.opts.Rul.set}
+%
+\begin{Description}
+This function sets default options for code chunks in R Markdown documents based on the output format.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+rmd_opts_set()
+\end{verbatim}
+\end{Usage}
+%
+\begin{Details}
+The function determines the output format (LaTeX or HTML) and sets appropriate chunk options.
+For LaTeX output, it sets options such as comment style, output width, figure settings, caching,
+and code styling. For HTML output, it sets similar options tailored for HTML rendering.
+\end{Details}
+%
+\begin{Value}
+None
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+rmd_opts_set()
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{set\_ggplot\_theme}{Set custom theme for ggplot2 plots}{set.Rul.ggplot.Rul.theme}
+%
+\begin{Description}
+This function sets a custom theme for ggplot2 plots with a light background color.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+set_ggplot_theme()
+\end{verbatim}
+\end{Usage}
+%
+\begin{Details}
+The function sets various graphical parameters for ggplot2 plots to customize their appearance.
+\end{Details}
+%
+\begin{Value}
+None
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+set_ggplot_theme()
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{sourceDir}{Source All R Scripts in a Directory}{sourceDir}
+%
+\begin{Description}
+This function sources all R scripts from a specified directory. It recursively searches for files
+with extensions \code{.R}, \code{.r}, \code{.S}, \code{.s}, \code{.Q}, and \code{.q} and sources them into the current environment.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+sourceDir(path, trace = TRUE, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{path}] A character string specifying the path to the directory containing the R scripts.
+
+\item[\code{trace}] A logical value indicating whether to print the names of the files being sourced. Default is TRUE.
+
+\item[\code{...}] Additional arguments to be passed to the \code{\LinkA{source}{source}} function.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+Invisible NULL. This function is called for its side effects.
+\end{Value}
+\HeaderA{summarize\_plots}{Summarize and Plot Columns of a Data Frame}{summarize.Rul.plots}
+%
+\begin{Description}
+This function generates summary plots for each column in a data frame.
+For numeric columns, it produces histograms, and for factor or character columns,
+it creates bar plots of the frequencies.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+summarize_plots(df, ncol = 3, fill = "firebrick", width = 10, height = 4, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{df}] A data frame to summarize and plot.
+
+\item[\code{ncol}] An integer specifying the number of columns to arrange the plots in (default: 3).
+This parameter is useful when displaying plots in a grid.
+
+\item[\code{fill}] A string specifying the fill color for the bars in histograms or bar plots (default: "firebrick").
+
+\item[\code{width}] Numeric value specifying the width of the plot (default: 10).
+
+\item[\code{height}] Numeric value specifying the height of the plot (default: 4).
+
+\item[\code{...}] Additional arguments passed to \code{patchwork::wrap\_plots()} for customizing the layout.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}
+This function checks the data type of each column in the provided data frame.
+\begin{itemize}
+
+\item{} For numeric columns, it creates histograms showing the distribution of the values.
+\item{} For categorical columns (factors or characters), it converts any character columns to factors
+and generates bar plots showing the counts of each level.
+
+\end{itemize}
+
+
+The function returns a combined set of plots arranged in a grid using \code{patchwork::wrap\_plots}.
+You can control the number of columns in the grid using the \code{ncol} argument.
+\end{Details}
+%
+\begin{Value}
+A combined patchwork of \code{ggplot2} objects arranged in a grid, where each plot corresponds
+to one of the columns of the data frame.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+# Example with the mtcars dataset
+summarize_plots(mtcars)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{summarize\_table}{Summarize Data Frame by Column Type}{summarize.Rul.table}
+%
+\begin{Description}
+This function provides a summary of each column in a data frame, generating different statistics based on the type of data (numeric, factor, character, logical, or other).
+It returns a tibble with the variable names and associated summary statistics, categorized by their data type.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+summarize_table(df)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{df}] A data frame containing the variables to be summarized.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A tibble with summary statistics for each variable in the input data frame. The summary includes:
+\begin{ldescription}
+\item[\code{Type}] The data type of the variable (Numeric, Factor, Character, Logical, Other).
+\item[\code{Mean}] The mean of the numeric variables (if applicable).
+\item[\code{Median}] The median of the numeric variables (if applicable).
+\item[\code{SD}] The standard deviation of the numeric variables (if applicable).
+\item[\code{Min}] The minimum value of the numeric variables (if applicable).
+\item[\code{Max}] The maximum value of the numeric variables (if applicable).
+\item[\code{Levels}] The number of levels for factor variables (if applicable).
+\item[\code{Unique}] The number of unique values for character or factor variables.
+\item[\code{Most\_Common}] The most frequent value for character or factor variables.
+\item[\code{Frequency}] The frequency of the most common value for character or factor variables.
+\item[\code{True\_Count}] The number of TRUE values for logical variables.
+\item[\code{False\_Count}] The number of FALSE values for logical variables.
+\item[\code{NA\_Count}] The number of missing values for each variable.
+\end{ldescription}
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+summarize_table(mtcars)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{summary\_w2}{Summarize W2 Data for a Given Year}{summary.Rul.w2}
+%
+\begin{Description}
+This function reads W2 data from an Excel file for a given year, calculates
+the total amount for each person and category, and generates a summary table.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+summary_w2(year, by_person = FALSE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{year}] The year for which W2 data is to be summarized.
+
+\item[\code{by\_person}] Logical indicating whether to summarize the data by person (default: FALSE).
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A flextable object representing the summary table of W2 data for the specified year.
+\end{Value}
+\HeaderA{zkbl}{Format and style a table for LaTeX output}{zkbl}
+%
+\begin{Description}
+This function formats and styles a table for LaTeX output using the kableExtra package.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+zkbl(
+  table,
+  booktabs = TRUE,
+  escape = TRUE,
+  format.args = list(decimal.mark = ".", big.mark = ","),
+  ...
+)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{table}] The data table to be formatted.
+
+\item[\code{booktabs}] Logical indicating whether to use the booktabs formatting (default: TRUE).
+
+\item[\code{escape}] Logical indicating whether to escape special characters in the table (default: TRUE).
+
+\item[\code{...}] Additional arguments to be passed to the kbl function.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A LaTeX-formatted table with specified styling.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+zkbl(mtcars[1:5,])
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{zpvalue}{Format p-value for Display}{zpvalue}
+%
+\begin{Description}
+This function formats a p-value for display, rounding it to three decimal places. If the p-value is smaller than 0.001, it returns '<0.001'.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+zpvalue(x)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] A numeric value representing a p-value.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character string. If \code{x > 0.001}, it returns the p-value rounded to three decimal places. If \code{x <= 0.001}, it returns '<0.001'.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+# Example usage of the function:
+zpvalue(0.005)
+zpvalue(0.0005)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{zrange}{Calculate and Format Range of a Numeric Vector}{zrange}
+%
+\begin{Description}
+This function calculates the range (minimum and maximum values) of a given numeric vector.
+It then formats and rounds these values to a specified number of decimal places, returning them as a string.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+zrange(x, digits = 2)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] A numeric vector for which the range (min and max) is to be calculated.
+
+\item[\code{digits}] An integer indicating the number of decimal places to which the
+results will be rounded. Defaults to 2.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character string representing the range of \code{x}, formatted as
+'(min, max)', where 'min' and 'max' are the minimum and maximum values of \code{x}
+rounded to \code{digits} decimal places.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+zrange(c(1.234, 5.678, 9.012))
+zrange(c(10, 20, 30, 40, 50), digits = 1)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{zround}{Round and Format Numbers to Specific Decimal Places}{zround}
+%
+\begin{Description}
+This function takes a numeric vector or a single numeric value and
+formats it to a specified number of decimal places. The function
+returns a character vector with the numbers formatted as strings.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+zround(x, digits = 2, method = 1)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] A numeric vector or a single numeric value.
+
+\item[\code{digits}] An integer indicating the number of decimal places
+to format the numbers. Defaults to 2.
+
+\item[\code{method}] An integer (1 or 2) specifying the rounding method:
+\begin{itemize}
+
+\item{} \code{1}: Uses \code{round()} followed by \code{format()}.
+\item{} \code{2}: Uses \code{sprintf()} to format the numbers.
+
+\end{itemize}
+
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character vector with each number in \code{x} formatted to
+\code{digits} decimal places.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+x = c(5.555, 1.115, -0.002)
+zround(x, method = 1)
+zround(x, method = 2)
+formatC(x, digits = 2, format = "f")
+formattable::formattable(x, digits = 2, format = "f")
+
+\end{ExampleCode}
+\end{Examples}
+\printindex{}
+\end{document}

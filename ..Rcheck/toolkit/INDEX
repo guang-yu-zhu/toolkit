@@ -1,0 +1,37 @@
+cleanLatex              Remove LaTeX Auxiliary Files
+clip                    Capture output and copy to clipboard
+combine_table           Combine Two Tables with different statistics.
+commit_and_tag          Commit Changes and Tag Version in Git
+compare_categorical     Perform Cross-Tabulation and Fisher's Exact
+                        Test
+compare_numerical       Compute Mean and SD for Two Samples by Grouping
+                        Variable and Perform One-Way ANOVA
+compile_handouts        Create and Compile Handouts from a List of TeX
+                        Files
+compile_rnws            Knit Files to PDF and Track Status
+compile_texs            Compile LaTeX Files
+count_percent           Calculate Counts and Percentages of Factor
+                        Levels
+cut_txt                 Cut text file into chunks with specified number
+                        of chapters
+draw_normal             Draw a normal distribution plot using ggplot2
+fun_links               Generate Links to Function Documentation
+meanSD                  Calculate Mean and Standard Deviation, and
+                        Format the Output
+plot_coef               Plot Regression Coefficients
+print_table             Print a Styled Table for HTML or LaTeX Output
+print_table_stripe      Print a styled LaTeX table with alternating row
+                        colors
+rmd_hook_set            Set custom knit hooks for R Markdown
+rmd_opts_set            Set default options for code chunks in R
+                        Markdown
+set_ggplot_theme        Set custom theme for ggplot2 plots
+sourceDir               Source All R Scripts in a Directory
+summarize_plots         Summarize and Plot Columns of a Data Frame
+summarize_table         Summarize Data Frame by Column Type
+summary_w2              Summarize W2 Data for a Given Year
+zkbl                    Format and style a table for LaTeX output
+zpvalue                 Format p-value for Display
+zrange                  Calculate and Format Range of a Numeric Vector
+zround                  Round and Format Numbers to Specific Decimal
+                        Places

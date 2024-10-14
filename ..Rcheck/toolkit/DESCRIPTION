@@ -12,22 +12,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Suggests: testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Imports: 
-    clipr, 
-    dplyr, 
-    tidyr, 
-    flextable, 
-    ggplot2, 
-    kableExtra, 
-    tinytex, 
-    knitr, 
-    magrittr, 
-    pacman, 
-    readxl, 
-    stringr, 
-    tibble, 
-    formattable, 
-    readr, 
-    patchwork
+Imports: clipr, dplyr, tidyr, flextable, ggplot2, kableExtra, tinytex,
+        knitr, magrittr, pacman, readxl, stringr, tibble, formattable,
+        readr, patchwork
 URL: http://guang-yu-zhu.github.io/toolkit
 BugReports: https://github.com/guang-yu-zhu/toolkit/issues
+Built: R 4.4.1; ; 2024-10-14 01:16:38 UTC; unix

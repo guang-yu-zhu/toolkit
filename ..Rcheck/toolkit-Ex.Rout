@@ -1,0 +1,680 @@
+
+R version 4.4.1 (2024-06-14) -- "Race for Your Life"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "toolkit"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('toolkit')
+
+Attaching package: ‘toolkit’
+
+The following object is masked from ‘package:graphics’:
+
+    clip
+
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("cleanLatex")
+> ### * cleanLatex
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: cleanLatex
+> ### Title: Remove LaTeX Auxiliary Files
+> ### Aliases: cleanLatex
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D # Clean the current working directory
+> ##D cleanLatex()
+> ##D 
+> ##D # Clean a specific directory
+> ##D cleanLatex("/path/to/latex/files", verbose = TRUE)
+> ## End(Not run)
+> 
+> 
+> 
+> cleanEx()
+> nameEx("combine_table")
+> ### * combine_table
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: combine_table
+> ### Title: Combine Two Tables with different statistics.
+> ### Aliases: combine_table
+> 
+> ### ** Examples
+> 
+> tab1<-margin.table(Titanic,c(1,4))
+> tab2 <- round(prop.table(tab1, margin = 1) * 100, 2)
+> combine_table(tab1,tab2,)
+               No          Yes
+1st  122 (37.54%) 203 (62.46%)
+2nd   167 (58.6%)  118 (41.4%)
+3rd  528 (74.79%) 178 (25.21%)
+Crew 673 (76.05%) 212 (23.95%)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("commit_and_tag")
+> ### * commit_and_tag
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: commit_and_tag
+> ### Title: Commit Changes and Tag Version in Git
+> ### Aliases: commit_and_tag
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D   commit_and_tag("1.0.2")
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("compare_categorical")
+> ### * compare_categorical
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: compare_categorical
+> ### Title: Perform Cross-Tabulation and Fisher's Exact Test
+> ### Aliases: compare_categorical
+> 
+> ### ** Examples
+> 
+> compare_categorical(mtcars, 'cyl', 'gear', varname = 'Gear')
+    Variables         4         6          8 p-value
+1 Gear, n (%)      <NA>      <NA>       <NA>  <0.001
+2           3  1 (9.1%) 2 (28.6%) 12 (85.7%)    <NA>
+3           4 8 (72.7%) 4 (57.1%)     0 (0%)    <NA>
+4           5 2 (18.2%) 1 (14.3%)  2 (14.3%)    <NA>
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("compare_numerical")
+> ### * compare_numerical
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: compare_numerical
+> ### Title: Compute Mean and SD for Two Samples by Grouping Variable and
+> ###   Perform One-Way ANOVA
+> ### Aliases: compare_numerical
+> 
+> ### ** Examples
+> 
+> compare_numerical(mtcars, 'cyl', 'mpg', varname = 'Miles per Gallon')
+                    Variables            4            6            8 p-value
+1 Miles per Gallon, mean (SD) 26.66 (4.51) 19.74 (1.45) 15.10 (2.56)  <0.001
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("compile_handouts")
+> ### * compile_handouts
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: compile_handouts
+> ### Title: Create and Compile Handouts from a List of TeX Files
+> ### Aliases: compile_handouts
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D   tex_files <- list.files(pattern = "^Sta.*\\.tex")
+> ##D   compile_handouts(tex_files)
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("compile_rnws")
+> ### * compile_rnws
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: compile_rnws
+> ### Title: Knit Files to PDF and Track Status
+> ### Aliases: compile_rnws
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D   file_list = list.files(pattern = "^Sta.*Rnw", ignore.case = TRUE)
+> ##D   knit_results <- compile_rnws(file_list)
+> ##D   print(knit_results)
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("compile_texs")
+> ### * compile_texs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: compile_texs
+> ### Title: Compile LaTeX Files
+> ### Aliases: compile_texs
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D   compile_latex_files()
+> ##D   compile_latex_files(c("file1.tex", "file2.tex"))
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("count_percent")
+> ### * count_percent
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: count_percent
+> ### Title: Calculate Counts and Percentages of Factor Levels
+> ### Aliases: count_percent
+> 
+> ### ** Examples
+> 
+> levels= LETTERS[1:3]
+> factor1 <- levels%>%sample(size = 10, replace = TRUE)%>%factor()
+> count_percent(factor1,1)
+[1] "3 (30.0%)" "3 (30.0%)" "4 (40.0%)"
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("cut_txt")
+> ### * cut_txt
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: cut_txt
+> ### Title: Cut text file into chunks with specified number of chapters
+> ### Aliases: cut_txt
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D cut_txt(file = "your_file.txt", marker = "第.*章", num_chapters = 25)
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("draw_normal")
+> ### * draw_normal
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: draw_normal
+> ### Title: Draw a normal distribution plot using ggplot2
+> ### Aliases: draw_normal
+> 
+> ### ** Examples
+> 
+> draw_normal(mu = 0, sd = 1, color_density = "red")
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("fun_links")
+> ### * fun_links
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: fun_links
+> ### Title: Generate Links to Function Documentation
+> ### Aliases: fun_links
+> 
+> ### ** Examples
+> 
+> function_list <- c("compile_rnws", "cleanFolder", "knit_rnws")
+> result <- fun_links(function_list, package_name = "toolkit")
+> cat(result)
+[compile_rnws](https://guang-yu-zhu.github.io/toolkit/reference/compile_rnws.html), [cleanFolder](https://guang-yu-zhu.github.io/toolkit/reference/cleanFolder.html), [knit_rnws](https://guang-yu-zhu.github.io/toolkit/reference/knit_rnws.html)> 
+> 
+> 
+> cleanEx()
+> nameEx("meanSD")
+> ### * meanSD
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: meanSD
+> ### Title: Calculate Mean and Standard Deviation, and Format the Output
+> ### Aliases: meanSD
+> 
+> ### ** Examples
+> 
+> meanSD(c(10.5, 5.3, 7.8), digits = 3)
+[1] "7.867 (2.601)"
+> 
+> 
+> 
+> cleanEx()
+> nameEx("plot_coef")
+> ### * plot_coef
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: plot_coef
+> ### Title: Plot Regression Coefficients
+> ### Aliases: plot_coef
+> 
+> ### ** Examples
+> 
+> # Example usage:
+> fit<-lm(mpg~.,data=mtcars)
+> coef(fit)%>%plot_coef(remove_intercept = TRUE)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("print_table")
+> ### * print_table
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: print_table
+> ### Title: Print a Styled Table for HTML or LaTeX Output
+> ### Aliases: print_table
+> 
+> ### ** Examples
+> 
+> print_table(mtcars[1:10, 1:3], num_col = 2, rowname = 'car')
+a flextable object.
+col_keys: `car`, `mpg`, `cyl`, `disp`, `car`, `mpg`, `cyl`, `disp` 
+header has 1 row(s) 
+body has 5 row(s) 
+original dataset sample: 
+                car  mpg cyl disp      car\r mpg\r cyl\r disp\r
+1         Mazda RX4 21.0   6  160    Valiant  18.1     6  225.0
+2     Mazda RX4 Wag 21.0   6  160 Duster 360  14.3     8  360.0
+3        Datsun 710 22.8   4  108  Merc 240D  24.4     4  146.7
+4    Hornet 4 Drive 21.4   6  258   Merc 230  22.8     4  140.8
+5 Hornet Sportabout 18.7   8  360   Merc 280  19.2     6  167.6
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("print_table_stripe")
+> ### * print_table_stripe
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: print_table_stripe
+> ### Title: Print a styled LaTeX table with alternating row colors
+> ### Aliases: print_table_stripe
+> 
+> ### ** Examples
+> 
+> print_table_stripe(mtcars[1:5, 1:3])
+<table class="table" style="font-size: 7px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-size: 7px;">   </th>
+   <th style="text-align:right;font-size: 7px;"> mpg </th>
+   <th style="text-align:right;font-size: 7px;"> cyl </th>
+   <th style="text-align:right;font-size: 7px;"> disp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mazda RX4 </td>
+   <td style="text-align:right;"> 21.0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 160 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mazda RX4 Wag </td>
+   <td style="text-align:right;"> 21.0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 160 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Datsun 710 </td>
+   <td style="text-align:right;"> 22.8 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 108 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hornet 4 Drive </td>
+   <td style="text-align:right;"> 21.4 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 258 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hornet Sportabout </td>
+   <td style="text-align:right;"> 18.7 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 360 </td>
+  </tr>
+</tbody>
+</table>> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("rmd_hook_set")
+> ### * rmd_hook_set
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: rmd_hook_set
+> ### Title: Set custom knit hooks for R Markdown
+> ### Aliases: rmd_hook_set
+> 
+> ### ** Examples
+> 
+> rmd_hook_set()
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("rmd_opts_set")
+> ### * rmd_opts_set
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: rmd_opts_set
+> ### Title: Set default options for code chunks in R Markdown
+> ### Aliases: rmd_opts_set
+> 
+> ### ** Examples
+> 
+> rmd_opts_set()
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("set_ggplot_theme")
+> ### * set_ggplot_theme
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: set_ggplot_theme
+> ### Title: Set custom theme for ggplot2 plots
+> ### Aliases: set_ggplot_theme
+> 
+> ### ** Examples
+> 
+> set_ggplot_theme()
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("summarize_plots")
+> ### * summarize_plots
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: summarize_plots
+> ### Title: Summarize and Plot Columns of a Data Frame
+> ### Aliases: summarize_plots
+> 
+> ### ** Examples
+> 
+> # Example with the mtcars dataset
+> summarize_plots(mtcars)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("summarize_table")
+> ### * summarize_table
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: summarize_table
+> ### Title: Summarize Data Frame by Column Type
+> ### Aliases: summarize_table
+> 
+> ### ** Examples
+> 
+> summarize_table(mtcars)
+# A tibble: 11 × 8
+  Variable Type      Mean Median      SD   Min    Max NA_Count
+  <chr>    <chr>    <dbl>  <dbl>   <dbl> <dbl>  <dbl>    <int>
+1 mpg      Numeric  20.1   19.2    6.03  10.4   33.9         0
+2 cyl      Numeric   6.19   6      1.79   4      8           0
+3 disp     Numeric 231.   196.   124.    71.1  472           0
+4 hp       Numeric 147.   123     68.6   52    335           0
+5 drat     Numeric   3.60   3.70   0.535  2.76   4.93        0
+6 wt       Numeric   3.22   3.32   0.978  1.51   5.42        0
+# ℹ 5 more rows
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("zkbl")
+> ### * zkbl
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: zkbl
+> ### Title: Format and style a table for LaTeX output
+> ### Aliases: zkbl
+> 
+> ### ** Examples
+> 
+> zkbl(mtcars[1:5,])
+<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">   </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> mpg </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> cyl </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> disp </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> hp </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> drat </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> wt </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> qsec </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> vs </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> am </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> gear </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> carb </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mazda RX4 </td>
+   <td style="text-align:right;"> 21.0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 160 </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:right;"> 3.90 </td>
+   <td style="text-align:right;"> 2.620 </td>
+   <td style="text-align:right;"> 16.46 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mazda RX4 Wag </td>
+   <td style="text-align:right;"> 21.0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 160 </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:right;"> 3.90 </td>
+   <td style="text-align:right;"> 2.875 </td>
+   <td style="text-align:right;"> 17.02 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Datsun 710 </td>
+   <td style="text-align:right;"> 22.8 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 3.85 </td>
+   <td style="text-align:right;"> 2.320 </td>
+   <td style="text-align:right;"> 18.61 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hornet 4 Drive </td>
+   <td style="text-align:right;"> 21.4 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 258 </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:right;"> 3.08 </td>
+   <td style="text-align:right;"> 3.215 </td>
+   <td style="text-align:right;"> 19.44 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hornet Sportabout </td>
+   <td style="text-align:right;"> 18.7 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 360 </td>
+   <td style="text-align:right;"> 175 </td>
+   <td style="text-align:right;"> 3.15 </td>
+   <td style="text-align:right;"> 3.440 </td>
+   <td style="text-align:right;"> 17.02 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+</tbody>
+</table>> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("zpvalue")
+> ### * zpvalue
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: zpvalue
+> ### Title: Format p-value for Display
+> ### Aliases: zpvalue
+> 
+> ### ** Examples
+> 
+> # Example usage of the function:
+> zpvalue(0.005)
+[1] "0.005"
+> zpvalue(0.0005)
+[1] "<0.001"
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("zrange")
+> ### * zrange
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: zrange
+> ### Title: Calculate and Format Range of a Numeric Vector
+> ### Aliases: zrange
+> 
+> ### ** Examples
+> 
+> zrange(c(1.234, 5.678, 9.012))
+[1] "(1.23, 9.01)"
+> zrange(c(10, 20, 30, 40, 50), digits = 1)
+[1] "(10.0, 50.0)"
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("zround")
+> ### * zround
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: zround
+> ### Title: Round and Format Numbers to Specific Decimal Places
+> ### Aliases: zround
+> 
+> ### ** Examples
+> 
+> x = c(5.555, 1.115, -0.002)
+> zround(x, method = 1)
+[1] "5.56" "1.11" "0.00"
+> zround(x, method = 2)
+[1] "5.55"  "1.11"  "-0.00"
+> formatC(x, digits = 2, format = "f")
+[1] "5.55"  "1.11"  "-0.00"
+> formattable::formattable(x, digits = 2, format = "f")
+[1] 5.55  1.11  -0.00
+> 
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  1.619 0.088 1.747 0.008 0.012 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

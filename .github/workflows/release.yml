@@ -2,7 +2,6 @@ name: Automatic Release
 
 on:
   push:
-    #branches: [main, master]
     tags:
       - 'v*.*.*'  # Runs only on version tags
 
@@ -43,3 +42,8 @@ jobs:
         run: |
           echo "GitHub Ref: ${{ github.ref }}"
           echo "Release Name: Release ${{ github.ref }}"
+
+      # Step 6: Set output variable (if needed)
+      - name: Set Output
+        run: |
+          echo "RELEASE_NAME=Release ${{ github.ref }}" >> $GITHUB_ENV  # Store in environment file

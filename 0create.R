@@ -1,3 +1,24 @@
+#------- test new functions
+devtools::load_all()
+print_flextable(mtcars[1:10, 1:3], num_col = 2, rowname_label = 'car')
+
+print_kable(mtcars[1:10, 1:3], num_col = 2, rowname_label = 'car')
+print_kable(mtcars[1:10, 1:3], num_col = 2, rowname_label = 'car',format='latex')
+
+#save(df,new_df,file='df.Rdata')
+load('df.Rdata')
+kbl(new_df,row.names = FALSE,format = 'latex')%>%
+  kableExtra::kable_classic(full_width = F) %>%
+  kableExtra::kable_styling(position = 'center',
+                            font_size = fontsize)
+kbl(df,row.names = FALSE)%>%
+  kableExtra::kable_classic(full_width = F) %>%
+  kableExtra::kable_styling(position = 'center',
+                            font_size = fontsize,
+                            full_width = FALSE) %>%
+  kableExtra::row_spec(0, font_size = fontsize+2)
+print_kable(df,format = 'html',num_col = 2)
+#------
 file.edit('.gitignore')
 file.edit('.github/workflows/pkgdown.yaml')
 file.edit('.github/workflows/Release.yml')
@@ -19,28 +40,16 @@ preview_site()
 
 # new version  ------
 rmarkdown::render("NEWS.Rmd", output_file = "NEWS.md")
+toolkit::git_tag_push('1.1.3')
+
+
 ## Ensure Your Working Directory is Up-to-Date
 system("git add .")
-system("git commit -m 'Test release.yml'")
+system("git commit -m 'Release version 1.1.3'")
 system("git push")  # Pushes the latest changes to GitHub"
-## Create Tab and push
-system("git tag -a v1.1.2 -m 'Release version 1.1.2'")
-system("git push origin v1.1.2")
-#  usethis -----
-library(usethis)
-use_pipe()
-use_description(fields = list(Language = "es"))
-edit_r_profile(scope = c("user", "project"))
-use_mit_license()       # need a LICENSE file
-use_roxygen_md()        # use {roxygen2} for documentation and configuration
-use_package_doc()       # setup a package-level manual page
-use_testthat()          # setup testing infrastructure
-use_test("placeholder") # setup a placeholder test file
-devtools::document()             # Let {roxygen2} create NAMESPACE entries, build manual pages (and, more later on)
-devtools::check()                # looking for the three "0's" that tell us we're ready to roll!
-use_git()               # put the directory under git version control
-git_vaccinate()         # Prevent leaking credentials and other unnecessary filesystem cruft
-
+# Create Tab and push. ------
+system("git tag -a v1.1.3 -m 'Release version 1.1.3'")
+system("git push origin v1.1.3")
 
 #  ----  buid pdf manual
 library(roxygen2)

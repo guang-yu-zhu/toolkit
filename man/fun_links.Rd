@@ -2,7 +2,7 @@
 % Please edit documentation in R/fun_links.R
 \name{fun_links}
 \alias{fun_links}
-\title{Generate Links to Function Documentation}
+\title{Generate Links to Function Documentation for packagedown}
 \usage{
 fun_links(function_names, package_name = "toolkit")
 }

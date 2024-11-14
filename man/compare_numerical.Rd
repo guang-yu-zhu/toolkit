@@ -9,8 +9,8 @@ compare_numerical(
   col_var,
   row_var,
   varname = "",
-  total = FALSE,
-  colname = "Variables"
+  colname = "Variables",
+  total = FALSE
 )
 }
 \arguments{
@@ -22,9 +22,9 @@ compare_numerical(
 
 \item{varname}{A character string to label the row in the output table.}
 
-\item{total}{Logical; if TRUE, includes overall mean and SD.}
-
 \item{colname}{A character string for naming the output table column.}
+
+\item{total}{Logical; if TRUE, includes overall mean and SD.}
 }
 \value{
 A data frame containing group-wise means and standard deviations of \code{row_var} for each level of \code{col_var}, along with the p-value from the one-way ANOVA test.

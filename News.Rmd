@@ -9,21 +9,34 @@ output:
 library(toolkit)
 pkgname='toolkit'
 ```
+# toolkit 1.1.3 (2024-11-14)
+- Rmd and Rnw related functions:
+  - Add functions `r fun_links(c("rmd_hook_set","rmd_opts_set","rnw_hook_set","rnw_opts_set","set_ggplot_theme"),pkgname)`
+
+# toolkit 1.1.1 (2024-10-13)
+- Table functions:
+  - Remove old functions `print_table`, `print_table_stripe` and `zkbl`.
+  - Add functions `r fun_links(c("print_kable","print_flextable","split_df","save_flextable"),pkgname)`
 
 # toolkit 1.1.0 (2024-10-13)
-- Add function `r fun_links(c("git_commit_push","git_tag_push"),pkgname)`
+- Packagedown Related:
+  - Remove `commit_and_tag`
+  - For Add function `r fun_links(c("git_commit_push","git_tag_push"),pkgname)`
 
 
 # toolkit 1.0.3 (2024-10-13)
-- Add function `r fun_links(c("commit_and_tag","fun_links"),pkgname)`
+- Packagedown Related:
+  - Add function `r fun_links(c("commit_and_tag","fun_links"),pkgname)`
 
 # toolkit 1.0.2 (2024-10-13)
-- Add functions `r fun_links(c("compile_rnws", "compile_texs", "compile_handouts"),pkgname)`
+- Compiling files 
+  - Add functions `r fun_links(c("compile_rnws", "compile_texs", "compile_handouts"),pkgname)`
 
 
 # toolkit 1.0.1 (2024-09-20)
-- Add functions `r fun_links(c("summarize_plots", "summarize_table", "plot_coef"), pkgname)`
-- Revise function `r fun_links("print_table",pkgname)` such that it can break a long table into multiple columns.
+- Data Summary
+  - Add functions `r fun_links(c("summarize_plots", "summarize_table", "plot_coef"), pkgname)`
+  - Revise function `r fun_links("print_table",pkgname)` such that it can break a long table into multiple columns.
 
 
 

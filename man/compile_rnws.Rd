@@ -4,7 +4,7 @@
 \alias{compile_rnws}
 \title{Knit Files to PDF and Track Status}
 \usage{
-compile_rnws(file_list = NULL)
+compile_rnws(file_list = NULL, clean = TRUE)
 }
 \arguments{
 \item{file_list}{A character vector containing the file paths to the Rnw or LaTeX source files. If NULL, the function will search for all \code{.Rnw} files in the current directory.}
@@ -28,5 +28,4 @@ The function iterates through the list of files, attempts to compile each one us
   knit_results <- compile_rnws(file_list)
   print(knit_results)
 }
-
 }

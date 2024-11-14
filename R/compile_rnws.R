@@ -18,9 +18,9 @@
 #'   knit_results <- compile_rnws(file_list)
 #'   print(knit_results)
 #' }
-#'
+#' @importFrom knitr knit2pdf
 #' @export
-compile_rnws <- function(file_list = NULL) {
+compile_rnws <- function(file_list = NULL,clean=TRUE) {
   # If no file list is provided, get all .Rnw files in the current directory
   if (is.null(file_list)) {
     file_list <- list.files(pattern = "\\.Rnw$", ignore.case = TRUE, full.names = TRUE)
@@ -38,7 +38,7 @@ compile_rnws <- function(file_list = NULL) {
 
     tryCatch({
       # Attempt to knit the file to PDF
-      knit2pdf(input = filename, compiler = 'pdflatex', emulation = FALSE)
+      knitr::knit2pdf(input = filename, compiler = 'pdflatex', emulation = FALSE)
     }, error = function(e) {
       # On error, set flag to skip the file
       cat('Error encountered for:', filename, '\n', e$message, '\n')

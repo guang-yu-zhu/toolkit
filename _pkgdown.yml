@@ -32,13 +32,23 @@ navbar:
       icon: fa-user
       href: http://guangyuzhu.rbind.io
 reference:
-  - title: Tool functions
+  - title: Table functions
     desc:
     contents:
-      - clip
-      - cut_txt
-      - sourceDir
-      - summary_w2
+      - print_kable
+      - print_flextable
+      - save_flextable
+      - split_df
+  - title: Data Summary
+    desc:
+    contents:
+      - summarize_plots
+      - summarize_table
+      - plot_coef
+      - draw_normal
+      - compare_categorical
+      - compare_numerical
+
   - title: Packagedown Related
     desc:
     contents:
@@ -52,15 +62,6 @@ reference:
       - compile_rnws
       - compile_handouts
       - cleanLatex
-  - title: Data Summary
-    desc:
-    contents:
-      - summarize_plots
-      - summarize_table
-      - plot_coef
-      - draw_normal
-      - compare_categorical
-      - compare_numerical
   - title: Help Functions
     desc:
     contents:
@@ -70,15 +71,22 @@ reference:
       - zrange
       - zpvalue
       - combine_table
-  - title: Rmd functions
+  - title: Rmd and Rnw related functions
     desc:
     contents:
       - rmd_hook_set
       - rmd_opts_set
+      - rnw_hook_set
+      - rnw_opts_set
       - set_ggplot_theme
-      - zkbl
-      - print_table
-      - print_table_stripe
+  - title: Tool functions
+    desc:
+    contents:
+      - clip
+      - cut_txt
+      - replace_punctuation
+      - sourceDir
+      - summary_w2
 footer:
   structure:
     left: developed_by

@@ -12,16 +12,18 @@ compile_texs(file_list = NULL, clean = TRUE)
 \item{clean}{Logical indicating whether to clean auxiliary files after compilation (default is TRUE).}
 }
 \value{
-A data frame containing the names of the files and their compilation success status.
+A character vector of files that were unsuccessfully compiled.
 }
 \description{
 This function compiles a list of LaTeX (.tex) files using \code{tinytex::latexmk}.
 If no file list is provided, it compiles all \code{.tex} files in the current working directory.
+Note that files that fail to compile will still be included in the results data frame, marked with \code{success = FALSE}.
 }
 \examples{
 \dontrun{
-  compile_latex_files()
-  compile_latex_files(c("file1.tex", "file2.tex"))
+  failed_files <- compile_texs()
+  file_list = list.files(pattern = "^Sta.*tex", ignore.case = TRUE)
+  failed_files <- compile_texs(file_list)
 }
 
 }

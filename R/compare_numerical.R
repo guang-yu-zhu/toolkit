@@ -6,8 +6,8 @@
 #' @param col_var The grouping variable (factor or categorical).
 #' @param row_var The numerical variable for which mean and standard deviation are computed.
 #' @param varname A character string to label the row in the output table.
-#' @param total Logical; if TRUE, includes overall mean and SD.
 #' @param colname A character string for naming the output table column.
+#' @param total Logical; if TRUE, includes overall mean and SD.
 #'
 #' @return A data frame containing group-wise means and standard deviations of `row_var` for each level of `col_var`, along with the p-value from the one-way ANOVA test.
 #'
@@ -20,10 +20,9 @@
 #' @importFrom stats oneway.test sd formula
 #'
 #' @export
-compare_numerical <- function(dat, col_var, row_var,varname='',total=FALSE,colname='Variables') {
+compare_numerical <- function(dat, col_var, row_var,varname='',colname='Variables',total=FALSE) {
   rowname = paste0(varname, ', mean (SD)')
-  column = c(col_var, row_var)
-  dat2 <- dat %>% select(all_of(column))
+  dat2 <- dat %>% select(all_of(c(col_var, row_var)))
 
   # Mean and SD for each group defined by col_var
   res1 <- dat2 %>% dplyr::group_by(.data[[col_var]]) %>%  dplyr::summarize(

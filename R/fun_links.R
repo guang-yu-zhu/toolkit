@@ -1,4 +1,4 @@
-#' Generate Links to Function Documentation
+#' Generate Links to Function Documentation for packagedown
 #'
 #' This function takes a list of function names and generates a markdown
 #' formatted string with links to their documentation.

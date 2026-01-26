@@ -3,7 +3,7 @@
 #' This function prints a styled table in HTML or Word format using flextable.
 #'
 #' @param df The data frame to be formatted as a table.
-#' @param num_col An integer specifying the number of columns to split the output table into (default: 1).
+#' @param num_part An integer specifying the number of columns to split the output table into (default: 1).
 #' @param rowname_label A character string specifying the column name for the row names; if not provided, the row names will not be printed (default: NA).
 #' @param caption A character string specifying the caption for the table (default: '').
 #' @param digits An integer indicating the number of digits to display (default: 2).
@@ -16,7 +16,7 @@
 #'
 #' @examples
 #' dt = mtcars[1:10, 1:3]
-#' print_flextable(dt, num_col = 2, rowname_label = 'car')
+#' print_flextable(dt, num_part = 2, rowname_label = 'car')
 #'
 #' @importFrom magrittr %>%
 #' @importFrom flextable set_flextable_defaults flextable fontsize colformat_double autofit
@@ -24,8 +24,8 @@
 #' @importFrom officer fp_border
 #' @export
 #' @md
-print_flextable <- function(df, num_col = 1, rowname_label = NA, caption = '', digits = 2, fontsize = 11,
-                                  big.mark = ',', na_str = '', ...) {
+print_flextable <- function(df, num_part = 1, rowname_label = NA, caption = '', digits = 2, fontsize = 11,
+                            big.mark = ',', na_str = '', ...) {
   # Set default settings for flextable output
 
   my_theme<-function(ft){
@@ -60,22 +60,46 @@ print_flextable <- function(df, num_col = 1, rowname_label = NA, caption = '', d
   }
 
   # Split the data frame using the split_df function
-  new_df <- split_df(df, num_col)
+  new_df <- split_df(df, num_part)
+  num_col = ncol(df)
+
+
+  if (num_part > 1) {
+    col_keys <- character(0)
+    new_colnames <- colnames(new_df)
+    for (i in seq_len(num_part)) {
+      idx <- ((i - 1) * num_col + 1):(i * num_col)
+      col_keys <- c(col_keys, new_colnames[idx])
+      # Add separator key if not the last part
+      if (i < num_part) {
+        col_keys <- c(col_keys, paste0("sep", i))
+      }
+    }
+  }
+
 
   # Determine the document type (HTML, LaTeX, or Word)
   doc.type <- knitr::opts_knit$get('rmarkdown.pandoc.to')
   if (is.null(doc.type)) doc.type <- 'html'
 
   # Render for HTML or Word output (flextable)
-  res <- flextable::flextable(new_df) %>%
-    flextable::fontsize(size = fontsize) %>%
-    flextable::colformat_double(big.mark = big.mark, digits = digits, na_str = na_str) %>%
-    flextable::autofit()
-
-  if (num_col > 1) {
-    columns_add_vline = seq(ncol(new_df) / num_col, ncol(new_df) - 1, ncol(new_df) / num_col)
-    res <- res %>% flextable::vline(j = columns_add_vline,border=officer::fp_border(style='double'))
+  if(num_part>1){
+    res <- new_df%>%
+      flextable::flextable(col_keys = col_keys)%>%
+      flextable::empty_blanks()%>%
+      flextable::fontsize(size = fontsize) %>%
+      flextable::colformat_double(big.mark = big.mark, digits = digits, na_str = na_str) %>%
+      flextable::autofit()
+  }else{
+    res <- flextable::flextable(new_df) %>%
+      flextable::fontsize(size = fontsize) %>%
+      flextable::colformat_double(big.mark = big.mark, digits = digits, na_str = na_str) %>%
+      flextable::autofit()
   }
+  # if (num_part > 1) {
+  #   columns_add_vline = seq(ncol(new_df) / num_part, ncol(new_df) - 1, ncol(new_df) / num_part)
+  #   res <- res %>% flextable::vline(j = columns_add_vline,border=officer::fp_border(style='double'))
+  # }
 
   return(res)
 }

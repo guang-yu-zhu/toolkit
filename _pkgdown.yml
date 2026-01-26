@@ -65,6 +65,7 @@ reference:
   - title: Help Functions
     desc:
     contents:
+      - monthday
       - meanSD
       - count_percent
       - zround
@@ -79,6 +80,9 @@ reference:
       - rnw_hook_set
       - rnw_opts_set
       - set_ggplot_theme
+      - insert_images
+      - set_default_image_folder
+      - pmatrix
   - title: Tool functions
     desc:
     contents:

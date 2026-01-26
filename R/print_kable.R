@@ -23,7 +23,7 @@
 #' print_flextable(dt, num_col = 2, rowname_label = 'car',format='html')
 #'
 #' @importFrom magrittr %>%
-#' @importFrom kableExtra kbl kable_styling row_spec
+#' @importFrom kableExtra kbl kable_styling row_spec kable_classic
 #' @importFrom tibble rownames_to_column
 #' @export
 #' @md
@@ -53,17 +53,17 @@ print_kable <- function(x, num_col = 1, rowname_label = NA, caption = NA, digits
 
   # Choose output format and render the table
   if (format == "latex") {
-    res <- kbl(new_df,format =format, row.names = FALSE, caption = caption, digits = digits,
+    res <- kableExtra::kbl(new_df,format =format, row.names = FALSE, caption = caption, digits = digits,
                booktabs = booktabs,
                escape = escape, format.args = format.args, ...) %>%
-      kable_styling(latex_options = c("HOLD_position","striped","scale_down"),
+      kableExtra::kable_styling(latex_options = c("HOLD_position","striped","scale_down"),
                     full_width = FALSE,
                     position = 'center')
   } else if (format == "html") {
-    res <- kbl(new_df,format =format, row.names = FALSE, caption = caption, digits = digits,
+    res <- kableExtra::kbl(new_df,format =format, row.names = FALSE, caption = caption, digits = digits,
                escape = escape, format.args = format.args, ...) %>%
-      kable_classic(full_width = F) %>%
-      kable_styling(position = 'center',
+      kableExtra::kable_classic(full_width = F) %>%
+      kableExtra::kable_styling(position = 'center',
                     font_size = fontsize,
                     full_width = FALSE) # %>%
     # kableExtra::row_spec(0, font_size = fontsize+2)

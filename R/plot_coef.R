@@ -1,41 +1,51 @@
 #' Plot Regression Coefficients
 #'
-#' @description This function creates a bar plot to visualize regression coefficients, with optional ordering, intercept removal, and coefficient selection.
+#' @description Creates a bar plot of regression coefficients with optional confidence intervals, ordering, intercept removal, and coefficient selection.
 #'
-#' @param coefficients A named vector or data frame of regression coefficients.
-#' @param remove_intercept Logical. If TRUE, the intercept (first row) will be removed from the plot (default: FALSE).
-#' @param order_coef Logical. If TRUE, the coefficients will be sorted by absolute value before plotting (default: TRUE).
-#' @param select A logical vector to specify which coefficients are selected. If provided, the plot will highlight selected coefficients (default: NULL).
-#' @param title A character string specifying the title of the plot (default: "Regression Coefficients").
+#' @param fit A fitted model object (e.g., from `lm` or `glm`).
+#' @param remove_intercept Logical. If TRUE, the intercept is removed from the plot (default: TRUE).
+#' @param order_coef Logical. If TRUE, coefficients are sorted by absolute value (default: TRUE).
+#' @param select A logical vector indicating which coefficients to highlight (default: NULL).
+#' @param include_ci Logical. If TRUE, confidence intervals are displayed (default: TRUE).
+#' @param title Character. The plot title (default: "Regression Coefficients").
 #'
-#' @return A ggplot object displaying the regression coefficients as a bar plot.
+#' @return A ggplot object visualizing the regression coefficients.
 #'
-#' @details This function takes regression coefficients and creates a horizontal bar plot. It allows for sorting by the absolute value of coefficients, removing the intercept, and highlighting selected coefficients if a logical vector is provided. The plot is useful for interpreting regression models.
+#' @details This function plots regression coefficients as a horizontal bar chart. It supports sorting by absolute value, removing the intercept, highlighting selected coefficients, and displaying confidence intervals. It is useful for interpreting regression models.
 #'
 #' @examples
-#' # Example usage:
-#' fit<-lm(mpg~.,data=mtcars)
-#' coef(fit)%>%plot_coef(remove_intercept = TRUE)
+#' fit <- lm(mpg ~ ., data = mtcars)
+#' plot_coef(fit, remove_intercept = TRUE)
 #'
-#' @importFrom ggplot2 ggplot aes geom_bar coord_flip labs theme_minimal
-#' @importFrom dplyr mutate arrange slice rename
+#' @importFrom ggplot2 ggplot aes geom_bar geom_errorbar coord_flip labs theme_bw
+#' @importFrom dplyr mutate arrange filter rename bind_cols
 #' @importFrom tidyr drop_na
-#' @importFrom tibble as_tibble rownames_to_column
+#' @importFrom tibble rownames_to_column
 #' @export
 #' @md
-plot_coef <- function(coefficients, remove_intercept = FALSE, order_coef = TRUE, select = NULL, title = "Regression Coefficients") {
+plot_coef <- function(fit, remove_intercept = TRUE, order_coef = TRUE,
+                      select = NULL, include_ci = TRUE, title = '') {
 
   # Convert coefficients to a data frame
-  coef_df <- coefficients %>%
-    as.matrix() %>%
+  coef_df <- fit %>% coef()%>%
     as.data.frame() %>%
     dplyr::rename(Coefficient = 1) %>%
     tibble::rownames_to_column("Variable")
 
+  # If confidence intervals are included, rename columns accordingly
+  if (include_ci) {
+    CI_df <- fit %>%
+      confint.default() %>%
+      as.data.frame() %>%
+      dplyr::rename(CI_lower = 1, CI_upper = 2)
+    coef_df <- coef_df%>%
+      dplyr::bind_cols(CI_df)
+  }
+
   # Optionally remove the intercept
   if (remove_intercept) {
     coef_df <- coef_df %>%
-      slice(-1)  # Remove the first row (intercept)
+      dplyr::filter(Variable != "(Intercept)")
   }
 
   # Handle selection of coefficients if 'select' is provided
@@ -53,15 +63,19 @@ plot_coef <- function(coefficients, remove_intercept = FALSE, order_coef = TRUE,
       dplyr::mutate(Variable = factor(Variable, levels = Variable))  # Reorder factors
   }
 
-  # Create the bar plot
-
-  g <- ggplot2::ggplot(coef_df, aes(x = Variable, y = Coefficient, fill = select)) +
+  # Create the base plot
+  g <- ggplot2::ggplot(coef_df, ggplot2::aes(x = Variable, y = Coefficient, fill = select)) +
     ggplot2::geom_bar(stat = "identity") +
+    ggplot2::geom_hline(yintercept = 0, linewidth=1, color = "black") +
+    ggplot2::labs(title = title, x = "Variables", y = "Coefficient") +
     ggplot2::coord_flip() +
-    ggplot2::labs(title = title,
-         x = "Variables",
-         y = "Coefficient") +
     ggplot2::theme_bw()
+
+  # Add confidence intervals if requested
+  if (include_ci) {
+    g <- g +
+      ggplot2::geom_errorbar(aes(ymin = CI_lower, ymax = CI_upper), width = 0.5)
+  }
 
   return(g)
 }

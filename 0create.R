@@ -28,7 +28,7 @@ file.edit('NAMESPACE')
 file.edit('DESCRIPTION')
 file.edit('README.md')
 file.edit('NEWS.Rmd')
-#-----
+#----- built website
 # pkgdown::build_favicons() # run once when you have your man/figures/logo.png
 library(pkgdown)
 library(roxygen2)
@@ -40,16 +40,17 @@ preview_site()
 
 # new version  ------
 rmarkdown::render("NEWS.Rmd", output_file = "NEWS.md")
+toolkit::git_commit_push("New version 1.1.3")
 toolkit::git_tag_push('1.1.3')
 
 
 ## Ensure Your Working Directory is Up-to-Date
 system("git add .")
-system("git commit -m 'Release version 1.1.3'")
+system("git commit -m 'Release version 1.1.4'")
 system("git push")  # Pushes the latest changes to GitHub"
 # Create Tab and push. ------
-system("git tag -a v1.1.3 -m 'Release version 1.1.3'")
-system("git push origin v1.1.3")
+system("git tag -a v1.1.4 -m 'Release version 1.1.4'")
+system("git push origin v1.1.4")
 
 #  ----  buid pdf manual
 library(roxygen2)

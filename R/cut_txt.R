@@ -44,21 +44,23 @@ cut_txt<-function(file,marker="第.*章",num_chapters=25){
     chapter_index[i,1]=start_chapter_index
     chapter_index[i,2]=end_chapter_index
     # Determine the start and end indices for the current chunk
-    # start_index is the index of the start_chapter
+    
+	# start_index is the index of the start_chapter
     (start_index = chapter_indices[start_chapter_index])
-    # end_index is last line if its the last chunk, otherwise it is the index of the next_start_chapter
+    # end_index is last line if its the last chunk, otherwise it is the index of the next_start_chapter minus 1
     if(i == num_chunks){
       end_index=length(lines)
     }
     else{
       next_start_chapter_index <- i * num_chapters + 1
-      end_index = chapter_indices[next_start_chapter_index]
+      end_index = chapter_indices[next_start_chapter_index] - 1
     }
 
     # Extract lines for the current chunk
     chapter_lines <- lines[chapter_indices[start_chapter_index:end_chapter_index]]
     chunk_lines <- lines[start_index:end_index]
-    # Store the chunk in the list
+    
+	# Store the chunk in the list
     chapters_in_chunks[[i]] <- chapter_lines
     chunks[[i]] <- chunk_lines
   }

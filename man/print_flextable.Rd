@@ -6,7 +6,7 @@
 \usage{
 print_flextable(
   df,
-  num_col = 1,
+  num_part = 1,
   rowname_label = NA,
   caption = "",
   digits = 2,
@@ -19,7 +19,7 @@ print_flextable(
 \arguments{
 \item{df}{The data frame to be formatted as a table.}
 
-\item{num_col}{An integer specifying the number of columns to split the output table into (default: 1).}
+\item{num_part}{An integer specifying the number of columns to split the output table into (default: 1).}
 
 \item{rowname_label}{A character string specifying the column name for the row names; if not provided, the row names will not be printed (default: NA).}
 
@@ -43,6 +43,6 @@ This function prints a styled table in HTML or Word format using flextable.
 }
 \examples{
 dt = mtcars[1:10, 1:3]
-print_flextable(dt, num_col = 2, rowname_label = 'car')
+print_flextable(dt, num_part = 2, rowname_label = 'car')
 
 }

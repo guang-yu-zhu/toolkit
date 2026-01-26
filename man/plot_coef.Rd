@@ -5,36 +5,38 @@
 \title{Plot Regression Coefficients}
 \usage{
 plot_coef(
-  coefficients,
-  remove_intercept = FALSE,
+  fit,
+  remove_intercept = TRUE,
   order_coef = TRUE,
   select = NULL,
-  title = "Regression Coefficients"
+  include_ci = TRUE,
+  title = ""
 )
 }
 \arguments{
-\item{coefficients}{A named vector or data frame of regression coefficients.}
+\item{fit}{A fitted model object (e.g., from \code{lm} or \code{glm}).}
 
-\item{remove_intercept}{Logical. If TRUE, the intercept (first row) will be removed from the plot (default: FALSE).}
+\item{remove_intercept}{Logical. If TRUE, the intercept is removed from the plot (default: TRUE).}
 
-\item{order_coef}{Logical. If TRUE, the coefficients will be sorted by absolute value before plotting (default: TRUE).}
+\item{order_coef}{Logical. If TRUE, coefficients are sorted by absolute value (default: TRUE).}
 
-\item{select}{A logical vector to specify which coefficients are selected. If provided, the plot will highlight selected coefficients (default: NULL).}
+\item{select}{A logical vector indicating which coefficients to highlight (default: NULL).}
 
-\item{title}{A character string specifying the title of the plot (default: "Regression Coefficients").}
+\item{include_ci}{Logical. If TRUE, confidence intervals are displayed (default: TRUE).}
+
+\item{title}{Character. The plot title (default: "Regression Coefficients").}
 }
 \value{
-A ggplot object displaying the regression coefficients as a bar plot.
+A ggplot object visualizing the regression coefficients.
 }
 \description{
-This function creates a bar plot to visualize regression coefficients, with optional ordering, intercept removal, and coefficient selection.
+Creates a bar plot of regression coefficients with optional confidence intervals, ordering, intercept removal, and coefficient selection.
 }
 \details{
-This function takes regression coefficients and creates a horizontal bar plot. It allows for sorting by the absolute value of coefficients, removing the intercept, and highlighting selected coefficients if a logical vector is provided. The plot is useful for interpreting regression models.
+This function plots regression coefficients as a horizontal bar chart. It supports sorting by absolute value, removing the intercept, highlighting selected coefficients, and displaying confidence intervals. It is useful for interpreting regression models.
 }
 \examples{
-# Example usage:
-fit<-lm(mpg~.,data=mtcars)
-coef(fit)\%>\%plot_coef(remove_intercept = TRUE)
+fit <- lm(mpg ~ ., data = mtcars)
+plot_coef(fit, remove_intercept = TRUE)
 
 }

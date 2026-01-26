@@ -4,12 +4,12 @@
 \alias{split_df}
 \title{Split Data Frame into Multiple Parts}
 \usage{
-split_df(df, num_col, return_list = FALSE)
+split_df(df, num_part, return_list = FALSE)
 }
 \arguments{
 \item{df}{A data frame to be split.}
 
-\item{num_col}{An integer specifying the number of columns to split the data frame into.}
+\item{num_part}{An integer specifying the number of columns to split the data frame into.}
 
 \item{return_list}{A logical indicating whether to return a list of data frames (default: FALSE).}
 }
@@ -21,5 +21,5 @@ This function takes a data frame and splits it into multiple parts based on the 
 It can also include row names as a column if a valid row name label is provided.
 }
 \examples{
-split_df(mtcars[1:10, 1:3], num_col = 2, return_list = FALSE)
+split_df(mtcars[1:10, 1:3], num_part = 2, return_list = FALSE)
 }

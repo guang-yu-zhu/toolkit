@@ -18,7 +18,7 @@ replace_punctuation <- function(filename) {
     stringr::str_replace_all(pattern = "\u3002", replacement = '.') %>% # Replace Chinese period
     stringr::str_replace_all(pattern = "\uff01", replacement = '!') %>% # Replace Chinese exclamation mark
     stringr::str_replace_all(pattern = "\uff1f", replacement = '?') %>% # Replace Chinese question mark
-    stringr::str_replace_all(pattern = "\uff1a", replacement = ':') %>% # Replace Chinese colon
+    stringr::str_replace_all(pattern = "\uff1a", replacement = '-') %>% # Replace Chinese colon
     stringr::str_replace_all(pattern = "[\u201c\u201d]", replacement = '"') %>% # Replace Chinese double quotes
     stringr::str_replace_all(pattern = "[\u2018\u2019]", replacement = "'") %>% # Replace Chinese single quotes
     stringr::str_replace_all(pattern = "\uff08", replacement = "(") %>% # Replace Chinese left parenthesis
